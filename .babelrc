@@ -5,6 +5,7 @@
       "targets": {
         "browsers": [">3%"]
       }
-    }]
+    }],
+      ["react"]
   ]
 }
