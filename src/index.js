@@ -6,23 +6,10 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Game from './Game'
 
-const Guess = (props) => {
-    return (
-        <div className='text'>
-            {props.guess} : {props.text}
-        </div>
-    );
-};
-
-Guess.propTypes = {
-    guess: React.PropTypes.string.isRequired,
-};
-
-
 const Moves = (props) => {
     const guessElements = props.moves.map((move) => {
         return (
-            <Guess guess={move.guess} text={move.text} key={move.id}/>
+            <p className={move.text === 'was correct' ? "green" : "red"} key={move.id}> {move.guess} {move.text}</p>
         )
     });
     return (
@@ -56,7 +43,7 @@ class GuessForm extends Component {
         else return false;
     };
 
-     isNumber(num) {
+    isNumber(num) {
         return !isNaN(num);
     };
 
@@ -112,7 +99,7 @@ class App extends Component {
     }
 
     render() {
-        if(this.game.isWin() === false) {
+        if (this.game.isWin() === false) {
             return (
                 <div className="app">
                     <h1>Game Lobby</h1>
@@ -124,7 +111,7 @@ class App extends Component {
                 </div>
             );
         }
-        else if(this.game.isWin() === true){
+        else if (this.game.isWin() === true) {
             return (
                 <div className="app">
                     <h1>Game Lobby</h1>
