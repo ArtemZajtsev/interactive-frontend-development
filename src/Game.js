@@ -10,14 +10,12 @@ class Game {
 
     makeGuess(guessNumber) {
         if (guessNumber > this.targetNumber) {
-            return "was greater than target";
-        }
-        else if (guessNumber < this.targetNumber) {
-            return "was lower than target";
-        }
-        else {
+            return 'was greater than target';
+        } else if (guessNumber < this.targetNumber) {
+            return 'was lower than target';
+        } else {
             this.win = true;
-            return "was correct";
+            return 'was correct';
         }
     }
 
