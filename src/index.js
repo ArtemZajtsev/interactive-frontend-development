@@ -48,7 +48,7 @@ class GuessForm extends Component {
         };
     };
 
-    static handleEnterPress(e) {
+    handleEnterPress(e) {
         if (e.key === "Enter") {
             console.log("enter pressed");
             return true;
@@ -56,7 +56,7 @@ class GuessForm extends Component {
         else return false;
     };
 
-    static isNumber(num) {
+     isNumber(num) {
         return !isNaN(num);
     };
 
@@ -103,7 +103,7 @@ class App extends Component {
     }
 
     handleGuessSubmit({guess}) {
-        if (this.game.isWin() == false) {
+        if (this.game.isWin() === false) {
             const text = this.game.makeGuess(guess);
             this.setState({
                 moves: this.state.moves.concat({guess: guess, text: text, id: this.state.moves.length + 1})
@@ -112,15 +112,29 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div className="app">
-                <h1>Game Lobby</h1>
-                <h2>Number Guess Game</h2>
-                <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
-                <h3>Previous moves:</h3>
-                <Moves moves={this.state.moves}/>
-            </div>
-        );
+        if(this.game.isWin() === false) {
+            return (
+                <div className="app">
+                    <h1>Game Lobby</h1>
+                    <h2>Number Guess Game</h2>
+                    <p>Guess number from 0 to 9</p>
+                    <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
+                    <h3>Previous moves:</h3>
+                    <Moves moves={this.state.moves}/>
+                </div>
+            );
+        }
+        else if(this.game.isWin() === true){
+            return (
+                <div className="app">
+                    <h1>Game Lobby</h1>
+                    <h2>Number Guess Game</h2>
+                    <p>You won!</p>
+                    <h3>Previous moves:</h3>
+                    <Moves moves={this.state.moves}/>
+                </div>
+            )
+        }
     }
 }
 
