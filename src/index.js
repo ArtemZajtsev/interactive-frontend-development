@@ -4,11 +4,12 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Game from './Game'
 
 const Guess = (props) => {
     return (
         <div className='text'>
-            {props.guess}
+            {props.guess} : {props.text}
         </div>
     );
 };
@@ -18,12 +19,10 @@ Guess.propTypes = {
 };
 
 
-const GuessList = (props) => {
-    const guessElements = props.guesses.map((guess) => {
+const Moves = (props) => {
+    const guessElements = props.moves.map((move) => {
         return (
-            <Guess guess={guess.guess} key={guess.id}>
-                {guess.guess}
-            </Guess>
+            <Guess guess={move.guess} text={move.text} key={move.id}/>
         )
     });
     return (
@@ -33,8 +32,8 @@ const GuessList = (props) => {
     );
 };
 
-GuessList.propTypes = {
-    guesses: React.PropTypes.arrayOf(React.PropTypes.shape({
+Moves.propTypes = {
+    moves: React.PropTypes.arrayOf(React.PropTypes.shape({
         guess: React.PropTypes.string,
         id: React.PropTypes.number
     })).isRequired
@@ -42,37 +41,41 @@ GuessList.propTypes = {
 
 class GuessForm extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            guess:''
+            guess: ''
         };
-    }
+    };
 
     static handleEnterPress(e) {
-        if(e.key === "Enter"){
+        if (e.key === "Enter") {
             console.log("enter pressed");
             return true;
         }
         else return false;
     };
 
-    onSubmit(event) {
-        if(this.handleEnterPress(event)){
-            this.props.onSubmit({guess: this.state.guess});
-            this.setState({guess:''})
-        }
-    }
+    static isNumber(num) {
+        return !isNaN(num);
+    };
 
-    onChange(event){
-        this.setState({guess: event.target.value})
-    }
+    onSubmit(event) {
+        if (this.handleEnterPress(event) && this.state.guess.length == 1) {
+            this.props.onSubmit({guess: this.state.guess});
+            this.setState({guess: ''})
+        }
+    };
+
+    onChange(event) {
+        this.isNumber(event.target.value) ? this.setState({guess: event.target.value}) : ''
+    };
 
     render() {
         return (
             <div className="guessInput">
                 <input
-                    type="number"
+                    type="text"
                     placeholder="make a guess"
                     value={this.state.guess}
                     onChange={this.onChange.bind(this)}
@@ -90,19 +93,22 @@ GuessForm.propTypes = {
 
 class App extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            guesses:[
-            {guess:'',id:0}
-        ]};
+        this.state = {
+            moves: []
+        };
+        this.randNum = Math.floor(Math.random() * 10);
+        this.game = new Game(this.randNum);
     }
 
-    handleGuessSubmit({guess}){
-        const lastGuess = this.state.guesses[this.state.guesses.length-1];
-        this.setState({
-            guesses: this.state.guesses.concat({guess,id:lastGuess.id+1})
-        })
+    handleGuessSubmit({guess}) {
+        if (this.game.isWin() == false) {
+            const text = this.game.makeGuess(guess);
+            this.setState({
+                moves: this.state.moves.concat({guess: guess, text: text, id: this.state.moves.length + 1})
+            })
+        }
     }
 
     render() {
@@ -112,7 +118,7 @@ class App extends Component {
                 <h2>Number Guess Game</h2>
                 <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
                 <h3>Previous moves:</h3>
-                <GuessList guesses={this.state.guesses}/>
+                <Moves moves={this.state.moves}/>
             </div>
         );
     }

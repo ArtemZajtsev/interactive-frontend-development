@@ -5,16 +5,24 @@ class Game {
 
     constructor(number) {
         this.targetNumber = number;
+        this.win = false;
     }
 
-    makeGuess(guessNumber){
-        if(guessNumber > this.targetNumber){
+    makeGuess(guessNumber) {
+        if (guessNumber > this.targetNumber) {
             return "was greater than target";
         }
-        else if (guessNumber < this.targetNumber){
+        else if (guessNumber < this.targetNumber) {
             return "was lower than target";
         }
-        else return "was correct";
+        else {
+            this.win = true;
+            return "was correct";
+        }
+    }
+
+    isWin() {
+        return this.win;
     }
 }
 
