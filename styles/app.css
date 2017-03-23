@@ -14,3 +14,8 @@ body {
 .green{
     color:lawngreen;
 }
+
+.guess-list{
+    display: flex;
+    flex-direction: column-reverse;
+}

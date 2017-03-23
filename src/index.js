@@ -1,7 +1,6 @@
 /**
  * Created by minhi_000 on 12.03.2017.
  */
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Game from './Game'
