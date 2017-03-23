@@ -18,3 +18,15 @@ describe("makeGuess", ()=>{
         expect(game.makeGuess(5)).to.eql("was correct");
     });
 });
+describe("isWin", ()=>{
+   it('return false when game isn`t won', ()=>{
+       let game = new Game(5);
+       game.makeGuess(4);
+       expect(game.isWin()).to.eql(false);
+   });
+   it('return true when game is won', ()=>{
+       let game = new Game(5);
+       game.makeGuess(5);
+       expect(game.isWin()).to.eql(true);
+   })
+});
