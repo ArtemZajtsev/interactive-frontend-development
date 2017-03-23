@@ -2,3 +2,21 @@
     display: flex;
     justify-content: center;
 }
+
+body {
+    background-color: azure;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color:lawngreen;
+}
+
+.guess-list{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
