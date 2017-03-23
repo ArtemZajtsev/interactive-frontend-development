@@ -3,15 +3,15 @@
  */
 class Game {
 
-    constructor() {
-        this.targetNumber = Math.floor(Math.random()*10);
+    constructor(number) {
+        this.targetNumber = number;
     }
 
-    makeGuess(number){
-        if(number > this.targetNumber){
+    makeGuess(guessNumber){
+        if(guessNumber > this.targetNumber){
             return "was greater than target";
         }
-        else if (number < this.targetNumber){
+        else if (guessNumber < this.targetNumber){
             return "was lower than target";
         }
         else return "was correct";
