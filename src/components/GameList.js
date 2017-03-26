@@ -1,6 +1,6 @@
 import React from 'react';
 import NumberGameApp from '../containers/NumberGameApp';
-//import WordGameApp from '../containers/WordGameApp';
+import WordGameApp from '../containers/WordGameApp';
 
 const GameList =  (props) => {
     const gameElements = props.games.map((game) => {
@@ -10,9 +10,9 @@ const GameList =  (props) => {
             )
         }
         else if (game.gameType === 'word'){
-            // return(
-            //     <WordGameApp/>
-            // )
+            return(
+                <WordGameApp key={game.id}/>
+            )
         }
     });
 

@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     onWordClick() {
-        console.log('word game');
+        this.setState({games:this.state.games.concat([{gameType:'word',id:this.state.games.length+1}])});
     }
 
     render() {

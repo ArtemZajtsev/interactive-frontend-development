@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GuessForm from '../components/GuessForm';
+import GuessForm from '../components/NumberGuessForm';
 import Moves from '../components/NumberMoves'
 import Game from '../NumberGame';
 
@@ -27,7 +27,7 @@ class NumberGameApp extends Component {
     render() {
         if (this.game.isWin() === false) {
             return (
-                <div className="app">
+                <div className="number-game">
                     <h2>Number Guess Game</h2>
                     <p>Guess number from 0 to 9</p>
                     <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
@@ -37,7 +37,7 @@ class NumberGameApp extends Component {
             );
         } else if (this.game.isWin() === true) {
             return (
-                <div className="app">
+                <div className="number-game-win">
                     <h2>Number Guess Game</h2>
                     <p>You won!</p>
                     <h3>Previous moves:</h3>

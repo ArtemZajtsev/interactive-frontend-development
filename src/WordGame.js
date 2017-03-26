@@ -2,7 +2,7 @@ class WordGame {
 
     constructor() {
         this.wordsArray = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
-        this.targetWord = this.wordsArray[Math.floor(Math.random() * this.wordsArray.length)]
+        this.targetWord = this.wordsArray[Math.floor(Math.random() * this.wordsArray.length)];
         this.win = false;
     }
 
@@ -21,8 +21,7 @@ class WordGame {
                 }
                 return matches;
             }
-        }
-        else return false;
+        } else return false;
     }
 
     isWin() {
@@ -30,6 +29,7 @@ class WordGame {
     }
 }
 
+export default WordGame;
 // var myString = "pewpewpew";
 // var matches = [];
 // var myRegexp = /p/g;

@@ -1,15 +1,12 @@
-/**
- * Created by minhi_000 on 26.03.2017.
- */
-import React, {Component} from 'react'
+import React,{Component} from 'react'
 
-class GuessForm extends Component {
+class WordGuessForm extends Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
-            guess: ''
-        };
+            guess:''
+        }
     }
 
     handleEnterPress(e) {
@@ -18,19 +15,19 @@ class GuessForm extends Component {
         } else return false;
     }
 
-    isNumber(num) {
-        return !isNaN(num);
+    isString(string) {
+        return isNaN(string);
     }
 
     onSubmit(event) {
-        if (this.handleEnterPress(event) && this.state.guess.length == 1) {
-            this.props.onSubmit({guess: parseInt(this.state.guess)});
+        if (this.handleEnterPress(event)) {
+            this.props.onSubmit({guess: this.state.guess});
             this.setState({guess: ''});
         }
     }
 
     onChange(event) {
-        this.isNumber(event.target.value) ? this.setState({guess: event.target.value}) : '';
+        this.isString(event.target.value) ? this.setState({guess: event.target.value}) : '';
     }
 
     render() {
@@ -46,10 +43,7 @@ class GuessForm extends Component {
             </div>
         );
     }
+
 }
 
-GuessForm.propTypes = {
-    onSubmit: React.PropTypes.func.isRequired
-};
-
-export default GuessForm;
+export default WordGuessForm;
