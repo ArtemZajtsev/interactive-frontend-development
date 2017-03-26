@@ -21,6 +21,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
+                <h1>Game Lobby</h1>
                 <div className="game-buttons">
                     <button className="number-button" onClick={this.onNumberClick.bind(this)}>Create Number Game</button>
                     <button className="word-button" onClick={this.onWordClick.bind(this)}>Create Word Game</button>
