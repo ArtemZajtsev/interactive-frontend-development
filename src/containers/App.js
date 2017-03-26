@@ -7,15 +7,15 @@ class App extends Component {
         super(props);
         this.state = {
             games: []
-        }
+        };
     }
 
     onNumberClick() {
-        this.setState({games:this.state.games.concat([{gameType: 'number',id:this.state.games.length+1}])});
+        this.setState({games: this.state.games.concat([{gameType: 'number', id: this.state.games.length + 1}])});
     }
 
     onWordClick() {
-        this.setState({games:this.state.games.concat([{gameType:'word',id:this.state.games.length+1}])});
+        this.setState({games: this.state.games.concat([{gameType: 'word', id: this.state.games.length + 1}])});
     }
 
     render() {
@@ -23,14 +23,16 @@ class App extends Component {
             <div className="app">
                 <h1>Game Lobby</h1>
                 <div className="game-buttons">
-                    <button className="number-button" onClick={this.onNumberClick.bind(this)}>Create Number Game</button>
-                    <button className="word-button" onClick={this.onWordClick.bind(this)}>Create Word Game</button>
+                    <button className="number-button" onClick={this.onNumberClick.bind(this)}>Create Number Game
+                    </button>
+                    <button className="word-button" onClick={this.onWordClick.bind(this)}>Create Word Game
+                    </button>
                 </div>
                 <div className="game-list">
-                    <GameList games ={this.state.games}/>
+                    <GameList games={this.state.games}/>
                 </div>
             </div>
-        )
+        );
     }
 }
 

@@ -1,8 +1,7 @@
 class WordGame {
 
-    constructor() {
-        this.wordsArray = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
-        this.targetWord = this.wordsArray[Math.floor(Math.random() * this.wordsArray.length)];
+    constructor(word) {
+        this.targetWord = word;
         this.win = false;
     }
 
@@ -16,8 +15,6 @@ class WordGame {
                 matches.push(i);
             }
         }
-
-
         return matches;
     }
 

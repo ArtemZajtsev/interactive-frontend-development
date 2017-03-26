@@ -1,12 +1,12 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react';
 
 class WordGuessForm extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            guess:''
-        }
+            guess: ''
+        };
     }
 
     onSubmit(event) {
@@ -35,5 +35,10 @@ class WordGuessForm extends Component {
     }
 
 }
+
+WordGuessForm.propTypes = {
+    onSubmit: React.PropTypes.func.isRequired
+};
+
 
 export default WordGuessForm;

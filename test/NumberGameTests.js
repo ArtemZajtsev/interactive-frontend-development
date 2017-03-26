@@ -1,7 +1,3 @@
-/**
- * Created by minhi_000 on 23.03.2017.
- */
-
 import Game from '../src/NumberGame';
 
 describe('makeGuess', ()=>{

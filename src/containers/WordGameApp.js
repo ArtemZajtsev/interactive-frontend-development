@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import WordGame from '../WordGame'
-import WordGuessForm from '../components/WordGuessForm'
-import WordMoves from '../components/WordMoves'
+import React, {Component} from 'react';
+import WordGame from '../WordGame';
+import WordGuessForm from '../components/WordGuessForm';
+import WordMoves from '../components/WordMoves';
 
 class WordGameApp extends Component {
 
@@ -10,15 +10,19 @@ class WordGameApp extends Component {
         this.state = {
             moves: []
         };
-        this.game = new WordGame();
+        this.wordsArray = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
+        this.game = new WordGame(this.wordsArray[Math.floor(Math.random() * this.wordsArray.length)]);
     }
 
     handleGuessSubmit({guess}) {
         if (this.game.isWin() === false) {
             let correctLetters = this.game.makeGuess(guess);
-            console.log(correctLetters);
             this.setState({
-                moves: this.state.moves.concat({guess: guess, id: this.state.moves.length + 1, correct: correctLetters?correctLetters:[]})
+                moves: this.state.moves.concat({
+                    guess: guess,
+                    id: this.state.moves.length + 1,
+                    correct: correctLetters ? correctLetters : []
+                })
             });
         }
     }

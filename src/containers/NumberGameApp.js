@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GuessForm from '../components/NumberGuessForm';
-import Moves from '../components/NumberMoves'
+import Moves from '../components/NumberMoves';
 import Game from '../NumberGame';
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Moves = (props) => {
     const guessElements = props.moves.map((move) => {
@@ -11,6 +11,10 @@ const Moves = (props) => {
             {guessElements}
         </div>
     );
+};
+
+Moves.propTypes = {
+  moves: React.propTypes.array.isRequired
 };
 
 export default Moves;

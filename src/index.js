@@ -1,9 +1,9 @@
 /**
  * Created by minhi_000 on 12.03.2017.
  */
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App'
+import App from './containers/App';
 
 ReactDOM.render(
     <App/>,

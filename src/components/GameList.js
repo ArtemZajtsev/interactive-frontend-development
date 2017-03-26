@@ -2,17 +2,16 @@ import React from 'react';
 import NumberGameApp from '../containers/NumberGameApp';
 import WordGameApp from '../containers/WordGameApp';
 
-const GameList =  (props) => {
+const GameList = (props) => {
     const gameElements = props.games.map((game) => {
-        if (game.gameType === 'number'){
+        if (game.gameType === 'number') {
             return(
                 <NumberGameApp key={game.id}/>
-            )
-        }
-        else if (game.gameType === 'word'){
+            );
+        } else if (game.gameType === 'word') {
             return(
                 <WordGameApp key={game.id}/>
-            )
+            );
         }
     });
 
@@ -20,7 +19,11 @@ const GameList =  (props) => {
         <div className="game-list reverse-list">
             {gameElements}
         </div>
-    )
+    );
+};
+
+GameList.propTypes = {
+    games: React.propTypes.array.isRequired
 };
 
 export default GameList;
