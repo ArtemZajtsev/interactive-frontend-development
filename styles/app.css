@@ -20,3 +20,7 @@ body {
     flex-direction: column-reverse;
 }
 
+.game-list{
+    display:flex;
+    flex-direction: column-reverse;
+}

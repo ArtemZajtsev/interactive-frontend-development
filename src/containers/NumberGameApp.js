@@ -1,13 +1,10 @@
-/**
- * Created by minhi_000 on 26.03.2017.
- */
 import React, {Component} from 'react';
 import GuessForm from '../components/GuessForm';
 import Moves from '../components/Moves'
-import Game from '../src/Game';
+import Game from '../Game';
 
 
-class App extends Component {
+class NumberGameApp extends Component {
 
     constructor(props) {
         super(props);
@@ -53,4 +50,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default NumberGameApp;
