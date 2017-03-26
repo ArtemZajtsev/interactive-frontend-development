@@ -23,7 +23,7 @@ const GameList = (props) => {
 };
 
 GameList.propTypes = {
-    games: React.propTypes.array.isRequired
+    games: React.PropTypes.array.isRequired
 };
 
 export default GameList;

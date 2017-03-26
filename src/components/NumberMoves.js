@@ -14,7 +14,7 @@ const Moves = (props) => {
 };
 
 Moves.propTypes = {
-  moves: React.propTypes.array.isRequired
+  moves: React.PropTypes.array.isRequired
 };
 
 export default Moves;
