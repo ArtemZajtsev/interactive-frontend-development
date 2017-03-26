@@ -1,13 +1,24 @@
 import React from 'react'
 
 const WordMove = (props) => {
-    const guessElements = props.moves.map((move) => {
+    const letterRender = (move) => {
+        console.log(move);
+        return move.guess.split('').map((letter, index) => {
+            return (
+                <span key={index} className={move.correct.indexOf(index)>=0 ? 'green' : 'red'}>{letter}</span>
+            )
+        })
+    };
+
+    const guessElements = props.moves.map((move, index) => {
         return (
-            <p key={move.id}>{move.guess}</p>
+            <div key={index}>
+                {letterRender(move)}
+            </div>
         );
     });
     return (
-        <div>
+        <div className="reverse-list">
             {guessElements}
         </div>
     )

@@ -7,21 +7,18 @@ class WordGame {
     }
 
     makeGuess(guessString) {
-        let regex = new RegExp(guessString, 'g');
-        if (regex.test(this.targetWord)) {
-            if (guessString === this.targetWord) {
-                this.win = true;
+        let matches = [];
+        if (guessString === this.targetWord) {
+            this.win = true;
+        }
+        for (let i = 0; i < guessString.length; i++) {
+            if (guessString[i] === this.targetWord[i]) {
+                matches.push(i);
             }
-            else {
-                let matches = [];
-                let match = regex.exec(this.targetWord);
-                while (match != null) {
-                    matches.push(match);
-                    match = regex.exec(this.targetWord);
-                }
-                return matches;
-            }
-        } else return false;
+        }
+
+
+        return matches;
     }
 
     isWin() {
@@ -30,15 +27,3 @@ class WordGame {
 }
 
 export default WordGame;
-// var myString = "pewpewpew";
-// var matches = [];
-// var myRegexp = /p/g;
-// match = myRegexp.exec(myString);
-// while (match != null) {
-//     // matched text: match[0]
-//     // match start: match.index
-//     // capturing group n: match[n]
-//     matches.push(match);
-//     match = myRegexp.exec(myString);
-// }
-// console.log(matches)

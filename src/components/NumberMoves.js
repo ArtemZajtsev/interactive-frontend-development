@@ -7,7 +7,7 @@ const Moves = (props) => {
         );
     });
     return (
-        <div className='guess-list'>
+        <div className='guess-list reverse-list'>
             {guessElements}
         </div>
     );

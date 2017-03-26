@@ -25,21 +25,21 @@ class NumberGameApp extends Component {
     }
 
     render() {
-        if (this.game.isWin() === false) {
+        if (this.game.isWin()) {
+            return (
+                <div className="number-game-win">
+                    <h2>Number Guess Game</h2>
+                    <p>You won!</p>
+                    <h3>Previous moves:</h3>
+                    <Moves moves={this.state.moves}/>
+                </div>
+            );
+        } else {
             return (
                 <div className="number-game">
                     <h2>Number Guess Game</h2>
                     <p>Guess number from 0 to 9</p>
                     <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
-                    <h3>Previous moves:</h3>
-                    <Moves moves={this.state.moves}/>
-                </div>
-            );
-        } else if (this.game.isWin() === true) {
-            return (
-                <div className="number-game-win">
-                    <h2>Number Guess Game</h2>
-                    <p>You won!</p>
                     <h3>Previous moves:</h3>
                     <Moves moves={this.state.moves}/>
                 </div>

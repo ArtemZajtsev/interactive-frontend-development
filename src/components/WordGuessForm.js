@@ -9,25 +9,15 @@ class WordGuessForm extends Component {
         }
     }
 
-    handleEnterPress(e) {
-        if (e.key === 'Enter') {
-            return true;
-        } else return false;
-    }
-
-    isString(string) {
-        return isNaN(string);
-    }
-
     onSubmit(event) {
-        if (this.handleEnterPress(event)) {
+        if (event.key === 'Enter' && event.target.value.length >0) {
             this.props.onSubmit({guess: this.state.guess});
             this.setState({guess: ''});
         }
     }
 
     onChange(event) {
-        this.isString(event.target.value) ? this.setState({guess: event.target.value}) : '';
+        this.setState({guess: event.target.value});
     }
 
     render() {
