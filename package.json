@@ -36,6 +36,7 @@
     "start": "webpack-dev-server --open --config webpack.config.js",
     "lint": "eslint src/",
     "lint-test": "eslint -c ./test/.eslintrc test",
-    "test-debug": "mocha --inspect --debug-brk"
+    "test-debug": "mocha --inspect --debug-brk",
+    "mocha": "mocha"
   }
 }

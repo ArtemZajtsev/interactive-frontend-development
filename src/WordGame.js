@@ -1,3 +1,5 @@
+const WORDS = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
+
 class WordGame {
 
     constructor(word) {
@@ -24,3 +26,4 @@ class WordGame {
 }
 
 export default WordGame;
+export {WORDS};

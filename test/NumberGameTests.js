@@ -1,6 +1,6 @@
 import Game from '../src/NumberGame';
 
-describe('makeGuess', ()=>{
+describe('number makeGuess', ()=>{
     it('return `was greater then target` if guessed > than randomed', () =>{
         let game = new Game(5);
         expect(game.makeGuess(9)).to.eql('was greater than target');
@@ -14,7 +14,7 @@ describe('makeGuess', ()=>{
         expect(game.makeGuess(5)).to.eql('was correct');
     });
 });
-describe('isWin', ()=>{
+describe('number isWin', ()=>{
    it('return false when game isn`t won', ()=>{
        let game = new Game(5);
        game.makeGuess(4);

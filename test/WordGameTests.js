@@ -1,6 +1,6 @@
 import WordGame from '../src/WordGame';
 
-describe('isWin', () => {
+describe('word isWin', () => {
     it('return false when game isn`t won', () => {
         let game = new WordGame('test');
         game.makeGuess('pew');
@@ -13,7 +13,7 @@ describe('isWin', () => {
     });
 });
 
-describe('makeGuess', () => {
+describe('word makeGuess', () => {
     it('assign true to win if game is winned', () => {
         let game = new WordGame('test');
         game.makeGuess('test');

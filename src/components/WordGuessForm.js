@@ -10,7 +10,7 @@ class WordGuessForm extends Component {
     }
 
     onSubmit(event) {
-        if (event.key === 'Enter' && event.target.value.length >0) {
+        if (event.key === 'Enter' && this.state.guess.length>0) {
             this.props.onSubmit({guess: this.state.guess});
             this.setState({guess: ''});
         }
