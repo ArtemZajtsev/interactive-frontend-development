@@ -12,11 +12,10 @@ body {
 }
 
 .green{
-    color:lawngreen;
+    color: #306d08;
 }
 
-.guess-list{
+.reverse-list{
     display: flex;
     flex-direction: column-reverse;
 }
-
