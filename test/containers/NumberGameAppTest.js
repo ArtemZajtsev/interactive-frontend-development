@@ -20,17 +20,17 @@ describe('NumberGameApp', () => {
             <NumberMoves moves={[{
                 id: 1,
                 guess: -1,
-                text:'was lower than target'
+                text: 'was lower than target'
             }]}/>
-        )
+        );
     });
     it('shows win when you guess the right number', ()=>{
        const app = shallow(<NumberGameApp/>);
        const input = app.find(NumberGuessForm);
 
-       for(let i=0;i<10;i++) {
+       for(let i=0; i<10; i++) {
            input.props().onSubmit({guess: i});
        }
-       expect(app.find('p')).to.include.text('You won!')
+       expect(app.find('p')).to.include.text('You won!');
     });
 });

@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {shallow} from 'enzyme';
 import App from '../../src/containers/App';
-import NumberGameApp from '../../src/containers/NumberGameApp';
 import GameList from '../../src/components/GameList';
 
 describe('App', () => {
@@ -14,18 +13,14 @@ describe('App', () => {
         const app = shallow(<App/>);
         expect(app).contains.descendants(GameList);
     });
-    it('adds number game when clicked on corresponding button',()=>{
+    it('adds number game when clicked on corresponding button', ()=>{
         const app = shallow(<App/>);
         app.find('.number-button').simulate('click');
-        //expect(app).to.contain.descendants(NumberGameApp);
-        //expect(app.find('h2')).to.include.text('Number Guess Game')
-        expect(app.find('.game-list')).to.contain(<GameList games={[{gameType:'number', id:1}]}/>)
+        expect(app.find('.game-list')).to.contain(<GameList games={[{gameType: 'number', id: 1}]}/>);
     });
-    it('adds word game when clicked on corresponding button',()=>{
+    it('adds word game when clicked on corresponding button', ()=>{
         const app = shallow(<App/>);
         app.find('.word-button').simulate('click');
-        //expect(app).to.contain.descendants(NumberGameApp);
-        //expect(app.find('h2')).to.include.text('Number Guess Game')
-        expect(app.find('.game-list')).to.contain(<GameList games={[{gameType:'word', id:1}]}/>)
+        expect(app.find('.game-list')).to.contain(<GameList games={[{gameType: 'word', id: 1}]}/>);
     });
 });

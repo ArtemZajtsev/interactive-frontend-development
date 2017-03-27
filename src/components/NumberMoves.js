@@ -14,7 +14,11 @@ const Moves = (props) => {
 };
 
 Moves.propTypes = {
-  moves: React.PropTypes.array.isRequired
+  moves: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id: React.PropTypes.number,
+      guess: React.PropTypes.number,
+      text: React.PropTypes.string
+  })).isRequired
 };
 
 export default Moves;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow, render} from 'enzyme';
+import {shallow} from 'enzyme';
 import WordGuessForm from '../../src/components/WordGuessForm';
 
 describe('WordGuessForm', () => {
@@ -17,14 +17,14 @@ describe('WordGuessForm', () => {
     it('calls submit when enter is pressed', () => {
         const onSubmit = sinon.stub();
         const form = shallow(<WordGuessForm onSubmit={onSubmit}/>);
-        form.setState({guess:'p'});
-        form.find('input').simulate('keyUp',{key:'Enter'});
-        expect(onSubmit).to.have.been.calledWith({guess:'p'});
+        form.setState({guess: 'p'});
+        form.find('input').simulate('keyUp', {key: 'Enter'});
+        expect(onSubmit).to.have.been.calledWith({guess: 'p'});
     });
     it('clears state when submited', ()=> {
         const form = shallow(<WordGuessForm onSubmit={sinon.stub()}/>);
-        form.setState({guess:'p'});
-        form.find('input').simulate('keyUp',{key:'Enter'});
-        expect(form.state().guess).to.equal('')
+        form.setState({guess: 'p'});
+        form.find('input').simulate('keyUp', {key: 'Enter'});
+        expect(form.state().guess).to.equal('');
     });
 });

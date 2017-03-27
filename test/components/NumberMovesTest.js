@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow, render} from 'enzyme';
-import NumberMoves from '../../src/components/NumberMoves'
+import {shallow} from 'enzyme';
+import NumberMoves from '../../src/components/NumberMoves';
 
 describe('NumberMoves', () => {
     it('renders', () => {

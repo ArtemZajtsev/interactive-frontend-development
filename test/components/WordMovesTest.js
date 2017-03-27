@@ -1,6 +1,6 @@
-import React from 'react'
-import {shallow, render} from 'enzyme';
-import WordMoves from '../../src/components/WordMoves'
+import React from 'react';
+import {shallow} from 'enzyme';
+import WordMoves from '../../src/components/WordMoves';
 
 describe('WordMoves', () => {
     it('renders', () => {

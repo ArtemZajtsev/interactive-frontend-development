@@ -24,7 +24,10 @@ const WordMove = (props) => {
 };
 
 WordMove.propTypes = {
-    moves: React.PropTypes.array.isRequired
+    moves: React.PropTypes.arrayOf(React.PropTypes.shape({
+        guess: React.PropTypes.string,
+        correct: React.PropTypes.array
+    }))
 };
 
 
