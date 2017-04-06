@@ -1,37 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import GuessForm from '../components/NumberGuessForm';
 import Moves from '../components/NumberMoves';
-import Game from '../NumberGame';
 
+const NumberGameApp = (props) => {
 
-class NumberGameApp extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            moves: []
-        };
-        this.randNum = Math.floor(Math.random() * 10);
-        this.game = new Game(this.randNum);
-    }
-
-    handleGuessSubmit({guess}) {
-        if (this.game.isWin() === false) {
-            const text = this.game.makeGuess(guess);
-            this.setState({
-                moves: this.state.moves.concat({guess: guess, text: text, id: this.state.moves.length + 1})
-            });
-        }
-    }
-
-    render() {
-        if (this.game.isWin()) {
+        if (props.game.win) {
             return (
                 <div className="number-game-win">
                     <h2>Number Guess Game</h2>
                     <p>You won!</p>
                     <h3>Previous moves:</h3>
-                    <Moves moves={this.state.moves}/>
+                    <Moves moves={props.game.moves}/>
                 </div>
             );
         } else {
@@ -39,13 +18,12 @@ class NumberGameApp extends Component {
                 <div className="number-game">
                     <h2>Number Guess Game</h2>
                     <p>Guess number from 0 to 9</p>
-                    <GuessForm onSubmit={this.handleGuessSubmit.bind(this)}/>
+                    <GuessForm onSubmit={(guess) => (props.onSubmit(guess, props.game.id))}/>
                     <h3>Previous moves:</h3>
-                    <Moves moves={this.state.moves}/>
+                    <Moves moves={props.game.moves}/>
                 </div>
             );
         }
-    }
-}
+};
 
 export default NumberGameApp;
