@@ -9,15 +9,11 @@ const gamesReducer = (state = initialState, action) => {
             return {games: newGames};
         }
         case NUMBER_GAME_GUESS: {
-            let targetGame = state.games.find((x) => {
-                x.id === action.payload.id;
-            });
+            let targetGame = state.games.find((x) => x.id === action.payload.id);
             let targetGameClone = {...targetGame};
             let guess = action.payload.guess;
             let text = '';
-            let index = state.games.findIndex((x) => {
-                x.id === action.payload.id;
-            });
+            let index = state.games.findIndex((x) => x.id === action.payload.id);
 
             if (guess > targetGameClone.targetNumber) {
                 text = 'was greater than target';
@@ -43,14 +39,10 @@ const gamesReducer = (state = initialState, action) => {
             };
         }
         case WORD_GAME_GUESS: {
-            let targetGame = state.games.find((x) => {
-                x.id === action.payload.id;
-            });
+            let targetGame = state.games.find((x) => x.id === action.payload.id);
             let targetCloneGame = {...targetGame};
             let guess = action.payload.guess;
-            let index = state.games.findIndex((x) => {
-                x.id === action.payload.id;
-            });
+            let index = state.games.findIndex((x) => x.id === action.payload.id);
             let matches = [];
 
             if (guess === targetCloneGame.targetWord) {

@@ -1,6 +1,6 @@
 import React from 'react';
-import NumberGameApp from '../containers/NumberGameApp';
-import WordGameApp from '../containers/WordGameApp';
+import NumberGameApp from './NumberGameApp';
+import WordGameApp from './WordGameApp';
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {

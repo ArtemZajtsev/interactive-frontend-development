@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import NumberGameApp from '../../src/containers/NumberGameApp';
+import NumberGameApp from '../../src/components/NumberGameApp';
 import NumberMoves from '../../src/components/NumberMoves';
 import NumberGuessForm from '../../src/components/NumberGuessForm';
 

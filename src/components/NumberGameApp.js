@@ -1,6 +1,6 @@
 import React from 'react';
-import GuessForm from '../components/NumberGuessForm';
-import Moves from '../components/NumberMoves';
+import GuessForm from './NumberGuessForm';
+import Moves from './NumberMoves';
 
 const NumberGameApp = (props) => {
         if (props.game.win) {

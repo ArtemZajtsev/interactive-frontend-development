@@ -1,6 +1,6 @@
 import React from 'react';
-import WordGuessForm from '../components/WordGuessForm';
-import WordMoves from '../components/WordMoves';
+import WordGuessForm from './WordGuessForm';
+import WordMoves from './WordMoves';
 
 const WordGameApp = (props) => {
         if (props.game.win) {

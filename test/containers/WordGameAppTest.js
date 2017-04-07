@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import WordGameApp from '../../src/containers/WordGameApp';
+import WordGameApp from '../../src/components/WordGameApp';
 import WordMoves from '../../src/components/WordMoves';
 import WordGuessForm from '../../src/components/WordGuessForm';
 import {WORDS} from '../../src/WordGame';
