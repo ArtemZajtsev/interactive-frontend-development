@@ -1,5 +1,5 @@
 let nextId = 0;
-const WORDS = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
+export const WORDS = ['paper', 'grill', 'basil', 'hinge', 'ruler'];
 
 export const GAME_ADDED = 'GAME_ADDED';
 

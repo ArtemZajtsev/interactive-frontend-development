@@ -1,5 +1,9 @@
 import {GAME_ADDED, NUMBER_GAME_GUESS, WORD_GAME_GUESS} from '../actions/index';
 
+export const WG = 'was greater than target';
+export const WL = 'was lower than target';
+export const WC = 'was correct';
+
 const initialState = {games: []};
 
 const gamesReducer = (state = initialState, action) => {
@@ -16,12 +20,12 @@ const gamesReducer = (state = initialState, action) => {
             let index = state.games.findIndex((x) => x.id === action.payload.id);
 
             if (guess > targetGameClone.targetNumber) {
-                text = 'was greater than target';
+                text = WG;
             } else if (guess < targetGameClone.targetNumber) {
-                text = 'was lower than target';
+                text = WL;
             } else {
                 targetGameClone.win = true;
-                text = 'was correct';
+                text = WC;
             }
 
             const newMoves = targetGameClone.moves.concat({

@@ -19,7 +19,7 @@ describe('WordGuessForm', () => {
         const form = shallow(<WordGuessForm onSubmit={onSubmit}/>);
         form.setState({guess: 'p'});
         form.find('input').simulate('keyUp', {key: 'Enter'});
-        expect(onSubmit).to.have.been.calledWith({guess: 'p'});
+        expect(onSubmit).to.have.been.calledWith('p');
     });
     it('clears state when submited', ()=> {
         const form = shallow(<WordGuessForm onSubmit={sinon.stub()}/>);
