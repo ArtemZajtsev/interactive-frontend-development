@@ -3,7 +3,6 @@ import GuessForm from '../components/NumberGuessForm';
 import Moves from '../components/NumberMoves';
 
 const NumberGameApp = (props) => {
-
         if (props.game.win) {
             return (
                 <div className="number-game-win">
@@ -27,3 +26,12 @@ const NumberGameApp = (props) => {
 };
 
 export default NumberGameApp;
+
+NumberGameApp.propTypes = {
+    game: React.PropTypes.objectOf(React.PropTypes.shape({
+        win: React.PropTypes.bool,
+        moves: React.PropTypes.array,
+        id: React.PropTypes.number
+    })).isRequired,
+    onSubmit: React.PropTypes.func
+};

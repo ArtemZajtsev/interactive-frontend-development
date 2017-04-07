@@ -15,8 +15,7 @@ export const gameAdded = (type) => {
                 moves: []
             }
         };
-    }
-    else if (type === 'word'){
+    } else if (type === 'word') {
         return {
             type: GAME_ADDED,
             payload: {
@@ -32,24 +31,24 @@ export const gameAdded = (type) => {
 
 export const NUMBER_GAME_GUESS = 'NUMBER_GAME_GUESS';
 
-export const numberGameGuess = (guess,id) => {
+export const numberGameGuess = (guess, id) => {
   return {
       type: NUMBER_GAME_GUESS,
       payload: {
           guess,
           id
       }
-  }
+  };
 };
 
 export const WORD_GAME_GUESS = 'WORD_GAME_GUESS';
 
-export const wordGameGuess = (guess,id) => {
+export const wordGameGuess = (guess, id) => {
     return {
         type: WORD_GAME_GUESS,
         payload: {
             guess,
             id
         }
-    }
+    };
 };

@@ -8,4 +8,4 @@ const mapDispatchToProps = (dispatch) => ({
     onWordClick: () => dispatch(gameAdded('word')),
 });
 
-export default connect(undefined,mapDispatchToProps)(GameAddingButtons);
+export default connect(undefined, mapDispatchToProps)(GameAddingButtons);

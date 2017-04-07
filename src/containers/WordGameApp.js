@@ -3,7 +3,6 @@ import WordGuessForm from '../components/WordGuessForm';
 import WordMoves from '../components/WordMoves';
 
 const WordGameApp = (props) => {
-
         if (props.game.win) {
             return (
                 <div className="word-game-win">
@@ -18,7 +17,7 @@ const WordGameApp = (props) => {
                 <div className="word-game">
                     <h2>Word Guess Game</h2>
                     <p>Guess a 5 letter word</p>
-                    <WordGuessForm onSubmit={(guess) => {props.onSubmit(guess,props.game.id)}}/>
+                    <WordGuessForm onSubmit={(guess) => (props.onSubmit(guess, props.game.id))}/>
                     <h3>Previous moves:</h3>
                     <WordMoves moves={props.game.moves}/>
                 </div>
@@ -27,3 +26,13 @@ const WordGameApp = (props) => {
 };
 
 export default WordGameApp;
+
+WordGameApp.propTypes = {
+    game: React.PropTypes.objectOf(React.PropTypes.shape({
+        win: React.PropTypes.bool,
+        moves: React.PropTypes.array,
+        onSubmit: React.PropTypes.func,
+        id: React.PropTypes.number
+    })).isRequired,
+    onSubmit: React.PropTypes.func
+};
