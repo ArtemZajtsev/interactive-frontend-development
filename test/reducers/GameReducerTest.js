@@ -36,7 +36,7 @@ describe('number game', () => {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, numberGameGuess('6',1));
+        const newState = reducer(initialState, numberGameGuess('6', 1));
         expect(newState.games[0].moves[0].text).to.eql(WG);
     });
     it('return was correct if guessed === randomed', () => {
@@ -49,7 +49,7 @@ describe('number game', () => {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, numberGameGuess('5',1));
+        const newState = reducer(initialState, numberGameGuess('5', 1));
         expect(newState.games[0].moves[0].text).to.eql(WC);
     });
     it('wins the game if guess was correct', ()=> {
@@ -62,7 +62,7 @@ describe('number game', () => {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, numberGameGuess('5',1));
+        const newState = reducer(initialState, numberGameGuess('5', 1));
         expect(newState.games[0].win).to.eql(true);
     });
     it('win remain false while game isn`t won', ()=> {
@@ -75,10 +75,22 @@ describe('number game', () => {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, numberGameGuess('4',1));
+        const newState = reducer(initialState, numberGameGuess('4', 1));
         expect(newState.games[0].win).to.eql(false);
     });
-
+    it('adds right move when move is done', () => {
+        const initialState = {
+            games: [{
+                gameType: 'number',
+                id: 1,
+                win: false,
+                targetNumber: 5,
+                moves: []
+            }]
+        };
+        const newState = reducer(initialState, numberGameGuess('4', 1));
+        expect(newState.games[0].moves[0]).to.eql({guess: '4', id: 1, text: WL});
+    });
 });
 
 describe('word game', ()=> {
@@ -92,7 +104,7 @@ describe('word game', ()=> {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, wordGameGuess('test',1));
+        const newState = reducer(initialState, wordGameGuess('test', 1));
         expect(newState.games[0].win).to.eql(true);
     });
     it('win remain false while game isn`t won', () => {
@@ -105,7 +117,7 @@ describe('word game', ()=> {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, wordGameGuess('pew',1));
+        const newState = reducer(initialState, wordGameGuess('pew', 1));
         expect(newState.games[0].win).to.eql(false);
     });
     it('return correct matches', () => {
@@ -118,9 +130,20 @@ describe('word game', ()=> {
                 moves: []
             }]
         };
-        const newState = reducer(initialState, wordGameGuess('pew',1));
-        expect(newState.games[0].moves[0].correct).to.eql([0,1,2])
+        const newState = reducer(initialState, wordGameGuess('pew', 1));
+        expect(newState.games[0].moves[0].correct).to.eql([0, 1, 2]);
+    });
+    it('adds right move when move is done', ()=> {
+        const initialState = {
+            games: [{
+                gameType: 'word',
+                id: 1,
+                win: false,
+                targetWord: 'pewpew',
+                moves: []
+            }]
+        };
+        const newState = reducer(initialState, wordGameGuess('pew', 1));
+        expect(newState.games[0].moves[0]).to.eql({guess: 'pew', id: 1, correct: [0, 1, 2]});
     });
 });
-
-
