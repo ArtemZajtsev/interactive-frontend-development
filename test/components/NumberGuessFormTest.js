@@ -19,7 +19,7 @@ describe('NumberGuessForm', () => {
         const form = shallow(<NumberGuessForm onSubmit={onSubmit}/>);
         form.setState({guess: '2'});
         form.find('input').simulate('keyUp', {key: 'Enter'});
-        expect(onSubmit).to.have.been.calledWith({guess: 2});
+        expect(onSubmit).to.have.been.calledWith(2);
     });
     it('clears state when submited', ()=> {
         const form = shallow(<NumberGuessForm onSubmit={sinon.stub()}/>);

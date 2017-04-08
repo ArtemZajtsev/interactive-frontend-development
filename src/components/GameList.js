@@ -1,16 +1,16 @@
 import React from 'react';
-import NumberGameApp from '../containers/NumberGameApp';
-import WordGameApp from '../containers/WordGameApp';
+import NumberGameApp from './NumberGameApp';
+import WordGameApp from './WordGameApp';
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {
         if (game.gameType === 'number') {
             return(
-                <NumberGameApp key={game.id}/>
+                <NumberGameApp key={game.id} game={game} onSubmit={props.onNumberGuessSubmit} />
             );
         } else if (game.gameType === 'word') {
             return(
-                <WordGameApp key={game.id}/>
+                <WordGameApp key={game.id} game={game} onSubmit={props.onWordGuessSubmit}/>
             );
         }
     });

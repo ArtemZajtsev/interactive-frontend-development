@@ -15,7 +15,7 @@ class GuessForm extends Component {
 
     onSubmit(event) {
         if (event.key === 'Enter' && this.state.guess.length == 1) {
-            this.props.onSubmit({guess: parseInt(this.state.guess)});
+            this.props.onSubmit(parseInt(this.state.guess));
             this.setState({guess: ''});
         }
     }
