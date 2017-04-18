@@ -1,9 +1,10 @@
 import React from 'react';
 import WordGuessForm from './WordGuessForm';
 import WordMoves from './WordMoves';
+import {FINISHED_GAME} from '../constants';
 
 const WordGameApp = (props) => {
-        if (props.game.win) {
+        if (props.game.status == FINISHED_GAME) {
             return (
                 <div className="word-game-win">
                     <h2>Word Guess Game</h2>

@@ -5,7 +5,7 @@ const WordMove = (props) => {
     const letterRender = (move) => {
         return move.guess.split('').map((letter, idx) => {
             return (
-                <span key={idx} className={move.correct.indexOf(idx)>=0 ? 'green' : 'red'}>{letter}</span>
+                <span key={idx} className={move.letterMatches[idx] ? 'green' : 'red'}>{letter}</span>
             );
         });
     };
