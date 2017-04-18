@@ -1,10 +1,11 @@
 import React from 'react';
 import GuessForm from './NumberGuessForm';
 import Moves from './NumberMoves';
+import {finishedGame} from '../constants'
 
 const NumberGameApp = (props) => {
     console.log(props);
-        if (props.game.win) {
+        if (props.game.status == finishedGame) {
             return (
                 <div className="number-game-win">
                     <h2>Number Guess Game</h2>

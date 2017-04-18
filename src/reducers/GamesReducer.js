@@ -57,7 +57,12 @@ const gameReducer = (state = initialState, action) => {
             let targetGame = state.games[index];
             let targetGameClone = {...targetGame};
             targetGameClone.fetchState = {inFlight: false};
-            targetGameClone.moves = action.payload.moves;
+            console.log(action);
+            targetGameClone.status = action.payload.game.status;
+            targetGameClone.moves = targetGameClone.moves.concat({
+                guess: action.payload.move.guess,
+                comparedToAnswer: action.payload.move.comparedToAnswer
+            });
             return {
                 ...state,
                 games: [

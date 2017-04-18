@@ -1,10 +1,10 @@
 import React from 'react';
-import {WC} from '../reducers/GamesReducer';
+import {EQ,GT,LT,EQT,GTT,LTT} from '../constants';
 
 const Moves = (props) => {
-    const guessElements = props.moves.map((move) => {
+    const guessElements = props.moves.map((move,idx) => {
         return (
-            <p className={move.text === WC ? 'green' : 'red'} key={move.id}> {move.guess} {move.text}</p>
+            <p className={move.comparedToAnswer === EQ ? 'green' : 'red'} key={idx}> {move.guess} {(move.comparedToAnswer === GT) ? GTT : (move.comparedToAnswer === LT) ? LTT : EQT}</p>
         );
     });
     return (

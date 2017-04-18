@@ -14,11 +14,11 @@ export const GAME_ADDITION_FAILED = 'GAME_ADDITION_FAILED';
 export const gameAdditionFailed = createPayloadForwardingAction(GAME_ADDITION_FAILED);
 
 export const MOVE_ADDITION_REQUESTED = 'MOVE_ADDITION_REQUESTED';
-export const moveAdditionRequested = ({move, game}) => ({
+export const moveAdditionRequested = (guess,id) => ({
     type: MOVE_ADDITION_REQUESTED,
     payload: {
-        move,
-        game
+        id:id,
+        guess:guess
     }
 });
 
