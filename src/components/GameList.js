@@ -4,11 +4,12 @@ import WordGameApp from './WordGameApp';
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {
-        if (game.gameType === 'number') {
+        console.log(props);
+        if (game.type === 'guess_number') {
             return(
                 <NumberGameApp key={game.id} game={game} onSubmit={props.onNumberGuessSubmit} />
             );
-        } else if (game.gameType === 'word') {
+        } else if (game.type === 'guess_word') {
             return(
                 <WordGameApp key={game.id} game={game} onSubmit={props.onWordGuessSubmit}/>
             );

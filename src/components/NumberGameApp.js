@@ -3,6 +3,7 @@ import GuessForm from './NumberGuessForm';
 import Moves from './NumberMoves';
 
 const NumberGameApp = (props) => {
+    console.log(props);
         if (props.game.win) {
             return (
                 <div className="number-game-win">

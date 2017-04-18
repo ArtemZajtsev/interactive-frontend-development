@@ -1,11 +1,11 @@
 import GameAddingButtons from '../components/GameAddingButtons';
 import {connect} from 'react-redux';
-import {gameAdded} from '../actions';
+import {gameAdditionRequested} from '../actions';
 
 
 const mapDispatchToProps = (dispatch) => ({
-    onNumberClick: () => dispatch(gameAdded('number')),
-    onWordClick: () => dispatch(gameAdded('word')),
+    onNumberClick: () => dispatch(gameAdditionRequested('guess_number')),
+    onWordClick: () => dispatch(gameAdditionRequested('guess_word')),
 });
 
 export default connect(undefined, mapDispatchToProps)(GameAddingButtons);
