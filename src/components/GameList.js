@@ -16,7 +16,7 @@ const GameList = (props) => {
     });
 
     return (
-        <div className="game-list reverse-list">
+        <div className="game-list reverse-list center">
             {gameElements}
         </div>
     );

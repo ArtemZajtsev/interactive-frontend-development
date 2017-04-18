@@ -7,7 +7,7 @@ import {
     MOVE_ADDITION_FAILED
 } from '../actions/index';
 
-import {NUMBER_GAME, WORD_GAME} from '../constants'
+import {NUMBER_GAME} from '../constants'
 
 const initialState = {
     fetchState: {inFlight: false},

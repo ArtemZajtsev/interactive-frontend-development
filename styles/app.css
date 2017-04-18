@@ -19,3 +19,8 @@ body {
     display: flex;
     flex-direction: column-reverse;
 }
+
+.center{
+    display: flex;
+    justify-content: center;
+}

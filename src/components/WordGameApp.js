@@ -6,7 +6,7 @@ import {FINISHED_GAME} from '../constants';
 const WordGameApp = (props) => {
         if (props.game.status == FINISHED_GAME) {
             return (
-                <div className="word-game-win">
+                <div className="word-game-win center">
                     <h2>Word Guess Game</h2>
                     <p>You won!</p>
                     <h3>Previous moves:</h3>
