@@ -28,11 +28,12 @@ const WordGameApp = (props) => {
 export default WordGameApp;
 
 WordGameApp.propTypes = {
-    game: React.PropTypes.objectOf(React.PropTypes.shape({
+    game: React.PropTypes.shape({
         win: React.PropTypes.bool,
         moves: React.PropTypes.array,
         onSubmit: React.PropTypes.func,
-        id: React.PropTypes.number
-    })).isRequired,
+        id: React.PropTypes.number,
+        gameType: React.PropTypes.string
+    }).isRequired,
     onSubmit: React.PropTypes.func
 };
