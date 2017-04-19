@@ -52,10 +52,9 @@ export default NumberGameApp;
 NumberGameApp.propTypes = {
     game: React.PropTypes.shape({
         status: React.PropTypes.string,
-        win: React.PropTypes.bool,
         moves: React.PropTypes.array,
-        id: React.PropTypes.number,
-        gameType: React.PropTypes.string,
+        id: React.PropTypes.string,
+        type: React.PropTypes.string,
         fetchState: React.PropTypes.shape({
             inFlight: React.PropTypes.bool,
             error: React.PropTypes.string

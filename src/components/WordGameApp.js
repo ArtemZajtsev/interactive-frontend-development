@@ -4,6 +4,7 @@ import WordMoves from './WordMoves';
 import {FINISHED_GAME} from '../constants';
 
 const WordGameApp = (props) => {
+    console.log(props);
     if (props.game.status == FINISHED_GAME) {
         return (
             <div className="word-game-win">
@@ -52,11 +53,10 @@ export default WordGameApp;
 WordGameApp.propTypes = {
     game: React.PropTypes.shape({
         status: React.PropTypes.string,
-        win: React.PropTypes.bool,
         moves: React.PropTypes.array,
         onSubmit: React.PropTypes.func,
-        id: React.PropTypes.number,
-        gameType: React.PropTypes.string,
+        id: React.PropTypes.string,
+        type: React.PropTypes.string,
         fetchState: React.PropTypes.shape({
             inFlight: React.PropTypes.bool,
             error: React.PropTypes.string
