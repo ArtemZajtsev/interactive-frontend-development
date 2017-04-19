@@ -24,6 +24,6 @@ export const postMove = ({guess,id}) => (dispatch) => {
         'POST',
         {guess},
         ({move, game}) => dispatch(moveAdditionSucceeded({id, move, game})),
-        ({error} = {}) => dispatch(moveAdditionFailed(id, error))
+        ({error} = {}) => dispatch(moveAdditionFailed({id, error}))
     );
 };

@@ -30,7 +30,8 @@ const gameReducer = (state = initialState, action) => {
                     id: action.payload.id,
                     type: action.payload.type,
                     status: action.payload.status,
-                    moves: []
+                    moves: [],
+                    fetchState:{}
                 })
             };
         }
@@ -55,24 +56,12 @@ const gameReducer = (state = initialState, action) => {
             };
         }
         case MOVE_ADDITION_SUCCEEDED: {
-            console.log(action);
             let index = state.games.findIndex((x) => x.id === action.payload.id);
             let targetGame = state.games[index];
             let targetGameClone = {...targetGame};
             targetGameClone.fetchState = {inFlight: false};
             targetGameClone.status = action.payload.game.status;
-            if (action.payload.game.type === NUMBER_GAME) {
-                targetGameClone.moves = targetGameClone.moves.concat({
-                    guess: action.payload.move.guess,
-                    comparedToAnswer: action.payload.move.comparedToAnswer
-                });
-            } else {
-                targetGameClone.moves = targetGameClone.moves.concat({
-                    guess: action.payload.move.guess,
-                    correct: action.payload.move.correct,
-                    letterMatches: action.payload.move.letterMatches
-                });
-            }
+            targetGameClone.moves = targetGameClone.moves.concat(action.payload.move);
             return {
                 ...state,
                 games: [
@@ -86,7 +75,7 @@ const gameReducer = (state = initialState, action) => {
             let index = state.games.findIndex((x) => x.id === action.payload.id);
             let targetGame = state.games[index];
             let targetGameClone = {...targetGame};
-            targetGameClone.fetchState = {inFlight: false, error: action.payload};
+            targetGameClone.fetchState = {inFlight: false, error: action.payload.error};
             return {
                 ...state,
                 games: [

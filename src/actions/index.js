@@ -17,7 +17,8 @@ export const MOVE_ADDITION_REQUESTED = 'MOVE_ADDITION_REQUESTED';
 export const moveAdditionRequested = (guess, id) => ({
     type: MOVE_ADDITION_REQUESTED,
     payload: {
-        guess: guess
+        guess: guess,
+        id: id
     }
 });
 
