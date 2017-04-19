@@ -22,7 +22,7 @@ const WordGameApp = (props) => {
                 <h3>Previous moves:</h3>
                 <WordMoves moves={props.game.moves}/>
             </div>
-        )
+        );
     } else if (props.game.fetchState.error) {
         return (
             <div className="word-game">
@@ -33,7 +33,7 @@ const WordGameApp = (props) => {
                 <h3>Previous moves:</h3>
                 <WordMoves moves={props.game.moves}/>
             </div>
-        )
+        );
     } else {
         return (
             <div className="word-game">
@@ -51,11 +51,16 @@ export default WordGameApp;
 
 WordGameApp.propTypes = {
     game: React.PropTypes.shape({
+        status: React.PropTypes.string,
         win: React.PropTypes.bool,
         moves: React.PropTypes.array,
         onSubmit: React.PropTypes.func,
         id: React.PropTypes.number,
-        gameType: React.PropTypes.string
+        gameType: React.PropTypes.string,
+        fetchState: React.PropTypes.shape({
+            inFlight: React.PropTypes.bool,
+            error: React.PropTypes.string
+        }).isRequired
     }).isRequired,
     onSubmit: React.PropTypes.func
 };

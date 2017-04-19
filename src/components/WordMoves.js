@@ -1,7 +1,6 @@
 import React from 'react';
 
 const WordMove = (props) => {
-    console.log(props);
     const letterRender = (move) => {
         return move.guess.split('').map((letter, idx) => {
             return (

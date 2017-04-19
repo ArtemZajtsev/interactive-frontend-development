@@ -18,7 +18,7 @@ export const postGame = ({type}) => (dispatch) => {
     );
 };
 
-export const postMove = ({guess,id}) => (dispatch) => {
+export const postMove = ({guess, id}) => (dispatch) => {
     jsonAjax(
         SERVER_ADDRESS + `/games/${id}/moves`,
         'POST',

@@ -1,7 +1,7 @@
 import GameAddingButtons from '../components/GameAddingButtons';
 import {connect} from 'react-redux';
 import {gameAdditionRequested} from '../actions';
-import {NUMBER_GAME, WORD_GAME} from '../constants'
+import {NUMBER_GAME, WORD_GAME} from '../constants';
 
 const mapDispatchToProps = (dispatch) => ({
     onNumberClick: () => dispatch(gameAdditionRequested(NUMBER_GAME)),
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
             inFlight: state.fetchState.inFlight,
             error: state.fetchState.error
         }
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameAddingButtons);

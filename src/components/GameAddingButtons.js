@@ -6,7 +6,7 @@ const GameAddingButtons = (props) => {
             <div className="game-buttons">
                 <span>Loading game...</span>
             </div>
-        )
+        );
     } else if (props.fetchState.error) {
         return (
             <div className="game-buttons">
@@ -35,5 +35,9 @@ export default GameAddingButtons;
 
 GameAddingButtons.propTypes = {
     onNumberClick: React.PropTypes.func.isRequired,
-    onWordClick: React.PropTypes.func.isRequired
+    onWordClick: React.PropTypes.func.isRequired,
+    fetchState: React.PropTypes.shape({
+        inFlight: React.PropTypes.bool,
+        error: React.PropTypes.string
+    }).isRequired
 };
