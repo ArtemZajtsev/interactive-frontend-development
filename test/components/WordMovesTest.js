@@ -7,8 +7,8 @@ describe('WordMoves', () => {
         expect(shallow(
             <WordMoves moves={[{
                 correct: false,
-                letterMatches:[],
-                guess:'pew'
+                letterMatches: [],
+                guess: 'pew'
             }]}></WordMoves>
         )).to.exist;
     });
@@ -16,8 +16,8 @@ describe('WordMoves', () => {
         expect(shallow(
             <WordMoves moves={[{
                 correct: false,
-                letterMatches:[],
-                guess:'pew'
+                letterMatches: [],
+                guess: 'pew'
             }]}></WordMoves>
         )).to.include.text('pew');
     });
@@ -25,15 +25,15 @@ describe('WordMoves', () => {
         expect(shallow(
             <WordMoves moves={[{
                 correct: false,
-                letterMatches:[true],
-                guess:'pew'
+                letterMatches: [true],
+                guess: 'pew'
             }]}></WordMoves>).find('span').first().hasClass('green')).to.equal(true);
     });
     it('renders incorrect leters in red', () => {
         expect(shallow(
             <WordMoves moves={[{
                 guess: 'pew',
-                correct:false,
+                correct: false,
                 letterMatches: [false]
             }]}></WordMoves>).find('span').first().hasClass('red')).to.equal(true);
     });

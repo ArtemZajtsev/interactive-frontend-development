@@ -4,7 +4,6 @@ import Moves from './NumberMoves';
 import {FINISHED_GAME} from '../constants';
 
 const NumberGameApp = (props) => {
-    console.log(props);
     if (props.game.status == FINISHED_GAME) {
         return (
             <div className="number-game-win">

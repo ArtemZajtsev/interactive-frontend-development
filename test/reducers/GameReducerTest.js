@@ -11,12 +11,12 @@ import {
 
 describe('game addition buttons', () => {
     it('has no games or pending requests initially', () => {
-        expect(reducer(undefined, {})).to.eql({fetchState: {inFlight: false}, games: []})
+        expect(reducer(undefined, {})).to.eql({fetchState: {inFlight: false}, games: []});
     });
     it('sets request to flight when needed', () => {
         expect(
             reducer(undefined, gameAdditionRequested())
-        ).to.eql({fetchState: {inFlight: true}, games: []})
+        ).to.eql({fetchState: {inFlight: true}, games: []});
     });
     it('create game when request succeeds', () => {
         const initialState = reducer(undefined, gameAdditionRequested());
@@ -30,91 +30,55 @@ describe('game addition buttons', () => {
                 games: [
                     {
                         fetchState: {},
-                        id: "1",
+                        id: '1',
                         moves: [],
-                        status: "is cool",
-                        type: "dnd"
+                        status: 'is cool',
+                        type: 'dnd'
                     }
                 ]
             }
-        )
+        );
     });
     it('sets error when request fails', () => {
         expect(
             reducer(undefined, gameAdditionFailed('awwww'))
-        ).to.eql({fetchState: {error: "awwww", inFlight: false}, games: []})
+        ).to.eql({fetchState: {error: 'awwww', inFlight: false}, games: []});
     });
     it('sets request as not in flight when request succeeds', () => {
         expect(
             reducer(undefined, gameAdditionSucceeded({id: '1', type: 'dnd', status: 'is cool'})).fetchState.inFlight
-        ).to.eql(false)
+        ).to.eql(false);
     });
 });
 
 describe('moves', () => {
     it('has no moves initially', () => {
-        expect(reducer(undefined, {})).to.eql({fetchState: {inFlight: false}, games: []})
+        expect(reducer(undefined, {})).to.eql({fetchState: {inFlight: false}, games: []});
     });
     it('sets move request to flight when needed', () => {
         expect(
             reducer(undefined, moveAdditionRequested()).games[0].fetchState.inFlight
-        ).to.eql(true)
+        ).to.eql(true);
     });
     it('sets move when move request succeeds', () => {
         const initialState = reducer(undefined, gameAdditionSucceeded({id: '1', type: 'dnd', status: 'is cool'}));
         const previousState = reducer(initialState, moveAdditionRequested('yo', '1'));
         expect(
             reducer(previousState, moveAdditionSucceeded({id: '1', move: 'yo', game: {}})).games[0].moves[0]
-        ).to.eql('yo')
+        ).to.eql('yo');
     });
     it('sets request as not in flight when request succeeds', () => {
-       const initialState = reducer(undefined, gameAdditionSucceeded({id: '1', type: 'dnd', status: 'is cool'}));
-       const previousState = reducer(initialState, moveAdditionRequested('yo','1'));
-       expect(
-           reducer(previousState,moveAdditionSucceeded({id: '1', move: 'yo', game: {}})).games[0].fetchState.inFlight
-       ).to.eql(false)
+        const initialState = reducer(undefined, gameAdditionSucceeded({id: '1', type: 'dnd', status: 'is cool'}));
+        const previousState = reducer(initialState, moveAdditionRequested('yo', '1'));
+        expect(
+            reducer(previousState, moveAdditionSucceeded({id: '1', move: 'yo', game: {}})).games[0].fetchState.inFlight
+        ).to.eql(false);
     });
     it('sets error when request fails', () => {
         const initialState = reducer(undefined, gameAdditionSucceeded({id: '1', type: 'dnd', status: 'is cool'}));
         const previousState = reducer(initialState, moveAdditionRequested('yo', '1'));
         expect(
-            reducer(previousState, moveAdditionFailed({error:'meh'})).games[0].fetchState.error
-        ).to.eql('meh')
+            reducer(previousState, moveAdditionFailed({error: 'meh'})).games[0].fetchState.error
+        ).to.eql('meh');
     });
 });
-
-// import reducer, {WG, WL, WC} from '../../src/reducers/GamesReducer';
-// import {gameAdded, numberGameGuess, wordGameGuess} from '../../src/actions/index';
-
-// describe('number game', () => {
-//
-//     it('adds right move when move is done', () => {
-//         const initialState = {
-//             games: [{
-//                 gameType: 'number',
-//                 id: 1,
-//                 win: false,
-//                 targetNumber: 5,
-//                 moves: []
-//             }]
-//         };
-//         const newState = reducer(initialState, numberGameGuess('4', 1));
-//         expect(newState.games[0].moves[0]).to.eql({guess: '4', id: 1, text: WL});
-//     });
-// });
-//
-// describe('word game', ()=> {
-//     it('adds right move when move is done', ()=> {
-//         const initialState = {
-//             games: [{
-//                 gameType: 'word',
-//                 id: 1,
-//                 win: false,
-//                 targetWord: 'pewpew',
-//                 moves: []
-//             }]
-//         };
-//         const newState = reducer(initialState, wordGameGuess('pew', 1));
-//         expect(newState.games[0].moves[0]).to.eql({guess: 'pew', id: 1, correct: [0, 1, 2]});
-//     });
-// });

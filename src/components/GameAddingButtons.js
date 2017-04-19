@@ -10,7 +10,8 @@ const GameAddingButtons = (props) => {
     } else if (props.fetchState.error) {
         return (
             <div className="game-buttons">
-                <span>Last Game Downloading faced a problem {`${props.fetchState.error.error}`}. Please Try Again.</span>
+                <span>Last Game Downloading faced a problem {`${props.fetchState.error.error}`}. Please Try Again.
+                </span>
                 <div className="center">
                     <button className="number-button" onClick={props.onNumberClick}>Create Number Game
                     </button>

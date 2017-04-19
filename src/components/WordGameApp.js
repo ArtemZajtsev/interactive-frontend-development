@@ -4,7 +4,6 @@ import WordMoves from './WordMoves';
 import {FINISHED_GAME} from '../constants';
 
 const WordGameApp = (props) => {
-    console.log(props);
     if (props.game.status == FINISHED_GAME) {
         return (
             <div className="word-game-win">

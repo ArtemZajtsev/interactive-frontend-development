@@ -14,14 +14,14 @@ describe('game adding buttons', () => {
         const buttonsComponent = shallow(
             <GameAddingButtons onNumberClick={sinon.stub()}
                                onWordClick={sinon.stub()}
-                               fetchState={{inFlight: false, error: {error:'super error'}}}/>);
-        expect(buttonsComponent).to.include.text('Last Game Downloading faced a problem')
+                               fetchState={{inFlight: false, error: {error: 'super error'}}}/>);
+        expect(buttonsComponent).to.include.text('Last Game Downloading faced a problem');
     });
     it('shows buttons when request is not on fly and previous didn`t faced problems', () => {
         const buttonsComponent = shallow(
             <GameAddingButtons onNumberClick={sinon.stub()}
                                onWordClick={sinon.stub()}
-                               fetchState={{inFlight: false, error: {error:'super error'}}}/>);
+                               fetchState={{inFlight: false, error: {error: 'super error'}}}/>);
         expect(buttonsComponent).to.have.exactly(2).descendants('button');
     });
 });

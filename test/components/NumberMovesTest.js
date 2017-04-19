@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import NumberMoves from '../../src/components/NumberMoves';
-import {EQ, EQT, GT, GTT, LT, LTT} from '../../src/constants'
+import {EQ, EQT, GT, GTT, LT, LTT} from '../../src/constants';
 
 describe('NumberMoves', () => {
     it('renders', () => {

@@ -5,7 +5,7 @@ import {
     GAME_ADDITION_SUCCEEDED,
     MOVE_ADDITION_FAILED,
     MOVE_ADDITION_SUCCEEDED
-} from '../../src/actions/index'
+} from '../../src/actions/index';
 
 describe('postGame', () => {
     let xhr;
@@ -67,7 +67,7 @@ describe('postMove', () => {
     });
 
     it('dispatches move post failed when xhr fails', () => {
-        postMove({guess: 'guess', id:'1'})(dispatch);
+        postMove({guess: 'guess', id: '1'})(dispatch);
 
         requests[0].respond(503, {}, JSON.stringify({error: 'error'}));
         expect(dispatch).to.have.been.calledWith({
@@ -77,15 +77,15 @@ describe('postMove', () => {
     });
 
     it('dispatches game post success when xhr succeeds', () => {
-        postMove({guess: 'guess', id:'1'})(dispatch);
+        postMove({guess: 'guess', id: '1'})(dispatch);
 
-        requests[0].respond(201, {}, JSON.stringify({move: 'move',game: 'game'}));
+        requests[0].respond(201, {}, JSON.stringify({move: 'move', game: 'game'}));
         expect(dispatch).to.have.been.calledWith({
             type: MOVE_ADDITION_SUCCEEDED,
             payload: {
                 move: 'move',
                 game: 'game',
-                id:'1'
+                id: '1'
             }
         });
     });
