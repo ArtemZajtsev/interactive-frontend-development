@@ -20,6 +20,8 @@ const NumberGameApp = (props) => {
                 <h2>Number Guess Game</h2>
                 <p>Guess number from 0 to 9</p>
                 <span>Loading...</span>
+                <h3>Previous moves:</h3>
+                <Moves moves={props.game.moves}/>
             </div>
         );
     } else if (props.game.fetchState.error) {
@@ -29,6 +31,7 @@ const NumberGameApp = (props) => {
                 <p>Guess number from 0 to 9</p>
                 <span>{`${props.game.fetchState.error}`}. Please Try Again</span>
                 <GuessForm onSubmit={(guess) => (props.onSubmit(guess, props.game.id))}/>
+                <h3>Previous moves:</h3>
                 <Moves moves={props.game.moves}/>
             </div>
         );
