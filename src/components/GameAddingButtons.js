@@ -1,7 +1,6 @@
 import React from 'react';
 
 const GameAddingButtons = (props) => {
-    console.log(props);
     if (props.fetchState.inFlight && props.fetchState.error == undefined) {
         return (
             <div className="game-buttons">
