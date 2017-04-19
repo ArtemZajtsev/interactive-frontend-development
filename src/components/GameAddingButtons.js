@@ -1,6 +1,7 @@
 import React from 'react';
 
 const GameAddingButtons = (props) => {
+    console.log(props);
     if (props.fetchState.inFlight && props.fetchState.error == undefined) {
         return (
             <div className="game-buttons">
@@ -10,7 +11,7 @@ const GameAddingButtons = (props) => {
     } else if (props.fetchState.error) {
         return (
             <div className="game-buttons">
-                <span>Last Game Downloading faced a problem {`${props.fetchState.error}`}. Please Try Again.</span>
+                <span>Last Game Downloading faced a problem {`${props.fetchState.error.error}`}. Please Try Again.</span>
                 <div className="center">
                     <button className="number-button" onClick={props.onNumberClick}>Create Number Game
                     </button>
@@ -38,6 +39,6 @@ GameAddingButtons.propTypes = {
     onWordClick: React.PropTypes.func.isRequired,
     fetchState: React.PropTypes.shape({
         inFlight: React.PropTypes.bool,
-        error: React.PropTypes.string
+        error: React.PropTypes.object
     }).isRequired
 };

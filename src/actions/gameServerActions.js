@@ -14,7 +14,7 @@ export const postGame = ({type}) => (dispatch) => {
         'POST',
         {type},
         ({id, type, status}) => dispatch(gameAdditionSucceeded({id, type, status})),
-        ({error} ={}) => dispatch(gameAdditionFailed(error))
+        ({error} ={}) => dispatch(gameAdditionFailed({error}))
     );
 };
 

@@ -41,7 +41,7 @@
     "lint": "eslint src/",
     "lint-test": "eslint -c ./test/.eslintrc test",
     "test-debug": "mocha --inspect --debug-brk",
-    "mocha": "mocha",
+    "mocha": "mocha test/reducers",
     "start-server": "game_lobby_server --delay=1000 --failure-percentage=30"
   }
 }
