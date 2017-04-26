@@ -3,13 +3,14 @@ import {connect} from '../utils/WebSocket';
 import {
     connectionSucceeded,
     messageReceived,
-    disconnectSucceeded
+    disconnectSucceeded,
+    playerListReceived
 } from './connectionActions';
 
 let webSocketConnection = null;
 
 export const connectPlayer = ({name}) => (dispatch) => {
-     webSocketConnection = connect({
+    webSocketConnection = connect({
         onOpen: () => {
             dispatch(connectionSucceeded());
         },
@@ -19,13 +20,14 @@ export const connectPlayer = ({name}) => (dispatch) => {
         onMessage: ({eventName, payload}) => {
             dispatch(messageReceived({eventName, payload}));
             if (eventName === 'online-players') {
+                dispatch(playerListReceived(payload));
             }
         },
-         parameters: {playerName: name}
+        parameters: {playerName: name}
     });
 };
 
 export const disconnectPlayer = () => () => {
-  webSocketConnection.close();
+    webSocketConnection.close();
 };
 

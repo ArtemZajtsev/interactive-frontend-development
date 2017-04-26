@@ -20,3 +20,11 @@ export const disconnectRequested = () => ({
 
 export const DISCONNECT_SUCCEDED = 'DISCONNECT_SUCCEDED';
 export const disconnectSucceeded = createPayloadForwardingAction(DISCONNECT_SUCCEDED);
+
+export const PLAYER_LIST_RECEIVED = 'PLAYER_LIST_RECEIVED';
+export const playerListReceived = (playerList) => ({
+    type: PLAYER_LIST_RECEIVED,
+    payload: {
+        players: playerList
+    }
+});

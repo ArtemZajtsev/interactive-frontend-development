@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {
     CONNECTED,
-    CONNECTING,
-    DISONNECTED
+    CONNECTING
 } from '../constants';
 
 class ConnectionComponent extends Component {
@@ -19,19 +18,20 @@ class ConnectionComponent extends Component {
     }
 
     render() {
-        if (this.props.status == CONNECTING) {
+        if (this.props.status === CONNECTING) {
             return (
                 <div className="center">
                     <p>Connecting...</p>
                 </div>
             );
-        } else if (this.props.status == CONNECTED) {
+        } else if (this.props.status === CONNECTED) {
             return (
                 <div className="center">
                     <button onClick={() => {
                         this.props.onDisconnectClick();
                         this.setState({name: ''});
-                    }}>Disconnect</button>
+                    }}>Disconnect
+                    </button>
                 </div>
             );
         } else if (this.props.disconnectReason) {
@@ -49,7 +49,9 @@ class ConnectionComponent extends Component {
                         </input>
                         <button onClick={() => {
                             this.props.onConnectClick(this.state.name);
-                        }}>Connect</button>
+                            this.setState({name: ''});
+                        }}>Connect
+                        </button>
                     </div>
                 </div>
             );
@@ -62,7 +64,11 @@ class ConnectionComponent extends Component {
                         value={this.state.name}
                         onChange={this.onChange.bind(this)}>
                     </input>
-                    <button onClick={() => this.props.onConnectClick(this.state.name)}>Connect</button>
+                    <button onClick={() => {
+                        this.props.onConnectClick(this.state.name);
+                        this.setState({name: ''});
+                    }}>Connect
+                    </button>
                 </div>
             );
         }
