@@ -1,6 +1,8 @@
 import React from 'react';
 import NumberGameApp from './NumberGameApp';
 import WordGameApp from './WordGameApp';
+import PropTypes from 'prop-types';
+
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {
@@ -23,7 +25,7 @@ const GameList = (props) => {
 };
 
 GameList.propTypes = {
-    games: React.PropTypes.array.isRequired
+    games: PropTypes.array.isRequired
 };
 
 export default GameList;

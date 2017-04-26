@@ -2,6 +2,8 @@ import React from 'react';
 import GuessForm from './NumberGuessForm';
 import Moves from './NumberMoves';
 import {FINISHED_GAME} from '../constants';
+import PropTypes from 'prop-types';
+
 
 const NumberGameApp = (props) => {
     if (props.game.status == FINISHED_GAME) {
@@ -50,15 +52,15 @@ const NumberGameApp = (props) => {
 export default NumberGameApp;
 
 NumberGameApp.propTypes = {
-    game: React.PropTypes.shape({
-        status: React.PropTypes.string,
-        moves: React.PropTypes.array,
-        id: React.PropTypes.string,
-        type: React.PropTypes.string,
-        fetchState: React.PropTypes.shape({
-            inFlight: React.PropTypes.bool,
-            error: React.PropTypes.string
+    game: PropTypes.shape({
+        status: PropTypes.string,
+        moves: PropTypes.array,
+        id: PropTypes.string,
+        type: PropTypes.string,
+        fetchState: PropTypes.shape({
+            inFlight: PropTypes.bool,
+            error: PropTypes.string
         }).isRequired
     }).isRequired,
-    onSubmit: React.PropTypes.func
+    onSubmit: PropTypes.func
 };

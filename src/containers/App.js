@@ -2,6 +2,7 @@ import React from 'react';
 import GameListContainer from './GameListContainer';
 import GameAddingButtonsContainer from './GameAddingButtonsContainer';
 
+
 const App = () => {
         return (
             <div className="app">

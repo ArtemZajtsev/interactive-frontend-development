@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
-import reducer from './reducers/GamesReducer';
+import reducer from './reducers/index';
 import thunk from 'redux-thunk';
 import gameMiddleware from './middleware/gameMiddleware';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const GameAddingButtons = (props) => {
     if (props.fetchState.inFlight && props.fetchState.error == undefined) {
@@ -35,10 +36,10 @@ const GameAddingButtons = (props) => {
 export default GameAddingButtons;
 
 GameAddingButtons.propTypes = {
-    onNumberClick: React.PropTypes.func.isRequired,
-    onWordClick: React.PropTypes.func.isRequired,
-    fetchState: React.PropTypes.shape({
-        inFlight: React.PropTypes.bool,
-        error: React.PropTypes.object
+    onNumberClick: PropTypes.func.isRequired,
+    onWordClick: PropTypes.func.isRequired,
+    fetchState: PropTypes.shape({
+        inFlight: PropTypes.bool,
+        error: PropTypes.object
     }).isRequired
 };

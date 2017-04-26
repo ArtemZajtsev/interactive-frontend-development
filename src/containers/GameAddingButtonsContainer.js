@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => {
     return {
         fetchState: {
-            inFlight: state.fetchState.inFlight,
-            error: state.fetchState.error
+            inFlight: state.games.fetchState.inFlight,
+            error: state.games.fetchState.error
         }
     };
 };
