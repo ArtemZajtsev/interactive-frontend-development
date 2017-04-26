@@ -4,8 +4,12 @@ import {
     GAME_ADDITION_FAILED,
     MOVE_ADDITION_REQUESTED,
     MOVE_ADDITION_SUCCEEDED,
-    MOVE_ADDITION_FAILED
+    MOVE_ADDITION_FAILED,
 } from '../actions/gameActions';
+
+import {
+    DISCONNECT_SUCCEDED
+} from '../actions/connectionActions';
 
 const initialState = {
     fetchState: {inFlight: false},
@@ -14,6 +18,9 @@ const initialState = {
 
 const gameReducer = (state = initialState, action) => {
     switch (action.type) {
+        case DISCONNECT_SUCCEDED: {
+            return initialState;
+        }
         case GAME_ADDITION_REQUESTED: {
             return {
                 ...state,

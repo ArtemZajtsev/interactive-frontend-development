@@ -9,7 +9,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
   return {
-      games: state.games.games,
+      games: state.games.games
   };
 };
 
