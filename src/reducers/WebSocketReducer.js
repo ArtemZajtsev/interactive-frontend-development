@@ -1,9 +1,7 @@
 import {
     CONNECTION_REQUESTED,
     CONNECTION_SUCCEEDED,
-    CONNECTION_FAILED,
-    DISCONNECT_SUCCEDED,
-    MESSAGE_RECEIVED
+    DISCONNECT_SUCCEDED
 } from '../actions/connectionActions';
 
 import {
@@ -18,7 +16,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-
     switch (action.type) {
         case CONNECTION_REQUESTED: {
             return {status: CONNECTING};
@@ -26,16 +23,17 @@ const reducer = (state = initialState, action) => {
         case CONNECTION_SUCCEEDED: {
             return {status: CONNECTED};
         }
-        case CONNECTION_FAILED: {
-            return {
-                status: DISONNECTED,
-                disconnectReason: action.payload.reason
-            };
-        }
         case DISCONNECT_SUCCEDED: {
-          return {
-              initialState
-          };
+            if (action.payload.reason) {
+                return {
+                    status: DISONNECTED,
+                    disconnectReason: action.payload.reason
+                };
+            } else {
+                return {
+                    initialState
+                };
+            }
         }
         default: {
             return state;

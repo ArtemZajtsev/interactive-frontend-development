@@ -11,7 +11,6 @@ const ACTION_TYPE_TO_SERVER_ACTION = {
 };
 
 const connectionServerMiddleware = (store) => (next) => (action) => {
-    console.log(action);
     const connectionServerAction = ACTION_TYPE_TO_SERVER_ACTION[action.type];
     if (connectionServerAction) {
         connectionServerAction(action.payload)(store.dispatch);

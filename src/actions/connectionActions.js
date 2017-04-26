@@ -2,15 +2,12 @@ import {createPayloadForwardingAction} from '../utils/createPayloadForwardingAct
 
 export const CONNECTION_REQUESTED = 'CONNECTION_REQUESTED';
 export const connectionRequested = (name) => ({
-   type: CONNECTION_REQUESTED,
+    type: CONNECTION_REQUESTED,
     payload: {name: name}
 });
 
 export const CONNECTION_SUCCEEDED = 'CONNECTION_SUCCEEDED';
 export const connectionSucceeded = createPayloadForwardingAction(CONNECTION_SUCCEEDED);
-
-export const CONNECTION_FAILED = 'CONNECTION_FAILED';
-export const connectionFailed = createPayloadForwardingAction(CONNECTION_FAILED);
 
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 export const messageReceived = createPayloadForwardingAction(MESSAGE_RECEIVED);
