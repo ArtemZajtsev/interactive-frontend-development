@@ -4,7 +4,8 @@ import {
     connectionSucceeded,
     messageReceived,
     disconnectSucceeded,
-    playerListReceived
+    playerListReceived,
+    currentPlayerSuccesfullyAdded
 } from './connectionActions';
 
 let webSocketConnection = null;
@@ -21,6 +22,8 @@ export const connectPlayer = ({name}) => (dispatch) => {
             dispatch(messageReceived({eventName, payload}));
             if (eventName === 'online-players') {
                 dispatch(playerListReceived(payload));
+            } else if (eventName === 'connection:accepted') {
+                dispatch(currentPlayerSuccesfullyAdded(payload));
             }
         },
         parameters: {playerName: name}

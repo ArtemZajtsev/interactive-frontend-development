@@ -28,3 +28,11 @@ export const playerListReceived = (playerList) => ({
         players: playerList
     }
 });
+
+export const CURRENT_PLAYER_SUCCESFULLY_ADDED = 'CURRENT_PLAYER_SUCCESFULLY_ADDED';
+export const currentPlayerSuccesfullyAdded = (playerId) => ({
+   type: CURRENT_PLAYER_SUCCESFULLY_ADDED,
+    payload: {
+       player: playerId
+    }
+});

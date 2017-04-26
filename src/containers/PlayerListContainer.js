@@ -3,7 +3,8 @@ import PlayerList from '../components/PlayerList';
 
 const mapStateToProps = (state) => {
     return {
-        players: state.connection.players
+        players: state.connection.players,
+        currentPlayerId: state.connection.currentPlayerId
     };
 };
 

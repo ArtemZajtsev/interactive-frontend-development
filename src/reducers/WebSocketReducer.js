@@ -2,7 +2,8 @@ import {
     CONNECTION_REQUESTED,
     CONNECTION_SUCCEEDED,
     DISCONNECT_SUCCEDED,
-    PLAYER_LIST_RECEIVED
+    PLAYER_LIST_RECEIVED,
+    CURRENT_PLAYER_SUCCESFULLY_ADDED
 } from '../actions/connectionActions';
 
 import {
@@ -14,18 +15,23 @@ import {
 const initialState = {
     status: DISONNECTED,
     disconnectReason: null,
-    players: []
+    players: [],
+    currentPlayerId: ''
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case CONNECTION_REQUESTED: {
-            return {...state,
-                status: CONNECTING};
+            return {
+                ...state,
+                status: CONNECTING
+            };
         }
         case CONNECTION_SUCCEEDED: {
-            return {...state,
-                status: CONNECTED};
+            return {
+                ...state,
+                status: CONNECTED
+            };
         }
         case DISCONNECT_SUCCEDED: {
             if (action.payload.reason) {
@@ -43,6 +49,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 status: CONNECTED,
                 players: action.payload.players
+            };
+        }
+        case CURRENT_PLAYER_SUCCESFULLY_ADDED: {
+            return {
+                ...state,
+                currentPlayerId: action.payload.player.playerId
             };
         }
         default: {
