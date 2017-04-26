@@ -9,8 +9,8 @@ const App = () => {
             <div className="app">
                 <h1 className="center">Game Lobby</h1>
                 <ConnectionContainer/>
-                <GameAddingButtonsContainer/>
                 <PlayerListContainer/>
+                <GameAddingButtonsContainer/>
                 <GameListContainer/>
             </div>
         );
