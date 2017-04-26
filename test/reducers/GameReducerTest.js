@@ -6,7 +6,7 @@ import {
     moveAdditionRequested,
     moveAdditionSucceeded,
     moveAdditionFailed
-} from '../../src/actions/index';
+} from '../../src/actions/gameActions';
 
 
 describe('game addition buttons', () => {

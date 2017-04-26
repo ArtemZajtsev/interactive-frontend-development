@@ -1,10 +1,10 @@
-import jsonAjax from '../JSONAjaxRequest';
+import jsonAjax from '../utils/JSONAjaxRequest';
 import {
     gameAdditionSucceeded,
     gameAdditionFailed,
     moveAdditionSucceeded,
     moveAdditionFailed
-} from '../actions/index';
+} from './gameActions';
 
 const SERVER_ADDRESS = 'http://localhost:8081';
 

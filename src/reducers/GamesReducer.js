@@ -5,7 +5,7 @@ import {
     MOVE_ADDITION_REQUESTED,
     MOVE_ADDITION_SUCCEEDED,
     MOVE_ADDITION_FAILED
-} from '../actions/index';
+} from '../actions/gameActions';
 
 const initialState = {
     fetchState: {inFlight: false},

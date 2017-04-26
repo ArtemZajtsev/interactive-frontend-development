@@ -9,3 +9,7 @@ export const FINISHED_GAME = 'finished';
 
 export const NUMBER_GAME = 'guess_number';
 export const WORD_GAME = 'guess_word';
+
+export const DISONNECTED = 'disconnected';
+export const CONNECTING = 'connecting';
+export const CONNECTED = 'connected';

@@ -1,6 +1,6 @@
 import GameList from '../components/GameList';
 import {connect} from 'react-redux';
-import {moveAdditionRequested} from '../actions';
+import {moveAdditionRequested} from '../actions/gameActions';
 
 const mapDispatchToProps = (dispatch) => ({
     onNumberGuessSubmit: (guess, id) => dispatch(moveAdditionRequested(guess, id)),
