@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {CONNECTED} from '../constants';
 
 const GameAddingButtons = (props) => {
-    if (props.status == CONNECTED) {
+    if (props.status === CONNECTED) {
         if (props.fetchState.inFlight && props.fetchState.error == undefined) {
             return (
                 <div className="game-buttons">
@@ -46,6 +46,7 @@ export default GameAddingButtons;
 GameAddingButtons.propTypes = {
     onNumberClick: PropTypes.func.isRequired,
     onWordClick: PropTypes.func.isRequired,
+    status: PropTypes.string.isRequired,
     fetchState: PropTypes.shape({
         inFlight: PropTypes.bool,
         error: PropTypes.object

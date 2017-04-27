@@ -3,6 +3,7 @@ import {
     CONNECTED,
     CONNECTING
 } from '../constants';
+import PropTypes from 'prop-types';
 
 class ConnectionComponent extends Component {
 
@@ -76,3 +77,11 @@ class ConnectionComponent extends Component {
 }
 
 export default ConnectionComponent;
+
+ConnectionComponent.propTypes = {
+    onDisconnectClick: PropTypes.func.isRequired,
+    onConnectClick: PropTypes.func.isRequired,
+    status: PropTypes.string.isRequired,
+    disconnectReason: PropTypes.string
+
+};

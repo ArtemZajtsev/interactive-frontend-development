@@ -22,7 +22,15 @@ const PlayerList = (props) => {
             </div>
         );
     }
-
 };
 
 export default PlayerList;
+
+PlayerList.propTypes = {
+    currentPlayerId: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    players: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string
+    }).isRequired).isRequired
+};

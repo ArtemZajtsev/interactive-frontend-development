@@ -2,7 +2,6 @@ import {connect} from '../utils/WebSocket';
 
 import {
     connectionSucceeded,
-    messageReceived,
     disconnectSucceeded,
     playerListReceived,
     currentPlayerSuccesfullyAdded
