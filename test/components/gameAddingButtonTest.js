@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import GameAddingButtons from '../../src/components/GameAddingButtons';
-import {CONNECTED} from '../../src/constants';
+import {CONNECTED, CONNECTING, DISONNECTED} from '../../src/constants';
 
 describe('game adding buttons', () => {
     it('shows loading when request is on fly', () => {
@@ -27,5 +27,23 @@ describe('game adding buttons', () => {
                                fetchState={{inFlight: false, error: {error: 'super error'}}}
                                status={CONNECTED}/>);
         expect(buttonsComponent).to.have.exactly(2).descendants('button');
+    });
+    it('renders empty div when status is connecting', () =>{
+        const component = shallow(
+            <GameAddingButtons onNumberClick=""
+                               onWordClick=""
+                               status={CONNECTING}
+                               fetchState=""/>
+        );
+        expect(component).to.have.exactly(1).descendants('div');
+    });
+    it('renders empty div when status is disconnected', () =>{
+        const component = shallow(
+            <GameAddingButtons onNumberClick=""
+                               onWordClick=""
+                               status={DISONNECTED}
+                               fetchState=""/>
+        );
+        expect(component).to.have.exactly(1).descendants('div');
     });
 });
