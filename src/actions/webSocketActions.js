@@ -19,7 +19,6 @@ export const connectPlayer = ({name}) => (dispatch) => {
             dispatch(disconnectSucceeded({reason}));
         },
         onMessage: ({eventName, payload}) => {
-            dispatch(messageReceived({eventName, payload}));
             if (eventName === 'online-players') {
                 dispatch(playerListReceived(payload));
             } else if (eventName === 'connection:accepted') {

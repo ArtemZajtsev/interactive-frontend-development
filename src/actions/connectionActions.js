@@ -9,9 +9,6 @@ export const connectionRequested = (name) => ({
 export const CONNECTION_SUCCEEDED = 'CONNECTION_SUCCEEDED';
 export const connectionSucceeded = createPayloadForwardingAction(CONNECTION_SUCCEEDED);
 
-export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
-export const messageReceived = createPayloadForwardingAction(MESSAGE_RECEIVED);
-
 export const DISCONNECT_REQUESTED = 'DISCONNECT_REQUESTED';
 export const disconnectRequested = () => ({
     type: DISCONNECT_REQUESTED,
