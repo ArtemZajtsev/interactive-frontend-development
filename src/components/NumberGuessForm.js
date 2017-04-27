@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 
 class GuessForm extends Component {
 
@@ -40,7 +42,7 @@ class GuessForm extends Component {
 }
 
 GuessForm.propTypes = {
-    onSubmit: React.PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired
 };
 
 export default GuessForm;

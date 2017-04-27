@@ -1,7 +1,7 @@
 import {
     GAME_ADDITION_REQUESTED,
     MOVE_ADDITION_REQUESTED
-} from '../actions/index';
+} from '../actions/gameActions';
 
 import {
     postGame,

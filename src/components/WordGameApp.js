@@ -2,6 +2,8 @@ import React from 'react';
 import WordGuessForm from './WordGuessForm';
 import WordMoves from './WordMoves';
 import {FINISHED_GAME} from '../constants';
+import PropTypes from 'prop-types';
+
 
 const WordGameApp = (props) => {
     if (props.game.status == FINISHED_GAME) {
@@ -50,16 +52,16 @@ const WordGameApp = (props) => {
 export default WordGameApp;
 
 WordGameApp.propTypes = {
-    game: React.PropTypes.shape({
-        status: React.PropTypes.string,
-        moves: React.PropTypes.array,
-        onSubmit: React.PropTypes.func,
-        id: React.PropTypes.string,
-        type: React.PropTypes.string,
-        fetchState: React.PropTypes.shape({
-            inFlight: React.PropTypes.bool,
-            error: React.PropTypes.string
+    game: PropTypes.shape({
+        status: PropTypes.string,
+        moves: PropTypes.array,
+        onSubmit: PropTypes.func,
+        id: PropTypes.string,
+        type: PropTypes.string,
+        fetchState: PropTypes.shape({
+            inFlight: PropTypes.bool,
+            error: PropTypes.string
         }).isRequired
     }).isRequired,
-    onSubmit: React.PropTypes.func
+    onSubmit: PropTypes.func
 };

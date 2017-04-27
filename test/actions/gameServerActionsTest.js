@@ -5,7 +5,7 @@ import {
     GAME_ADDITION_SUCCEEDED,
     MOVE_ADDITION_FAILED,
     MOVE_ADDITION_SUCCEEDED
-} from '../../src/actions/index';
+} from '../../src/actions/gameActions';
 
 describe('postGame', () => {
     let xhr;

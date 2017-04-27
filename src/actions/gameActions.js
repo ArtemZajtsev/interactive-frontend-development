@@ -1,5 +1,4 @@
-const createPayloadForwardingAction = (type) => (payload) =>
-    ({type: type, payload: payload});
+import {createPayloadForwardingAction} from '../utils/createPayloadForwardingAction';
 
 export const GAME_ADDITION_REQUESTED = 'GAME_ADDITION_REQUESTED';
 export const gameAdditionRequested = (type) => ({

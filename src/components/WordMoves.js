@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const WordMove = (props) => {
     const letterRender = (move) => {
@@ -24,7 +26,7 @@ const WordMove = (props) => {
 };
 
 WordMove.propTypes = {
-    moves: React.PropTypes.array.isRequired
+    moves: PropTypes.array.isRequired
 };
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import {EQ, GT, LT, EQT, GTT, LTT} from '../constants';
+import PropTypes from 'prop-types';
+
 
 const Moves = (props) => {
     const guessElements = props.moves.map((move, idx) => {
@@ -16,7 +18,7 @@ const Moves = (props) => {
 };
 
 Moves.propTypes = {
-    moves: React.PropTypes.array.isRequired
+    moves: PropTypes.array.isRequired
 };
 
 export default Moves;
