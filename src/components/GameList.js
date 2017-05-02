@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {
-        if (props.location.pathname === '/ongoingGames' && game.status !== 'finished' ) {
+        if (props.location.pathname === '/ongoingGames' && game.status !== 'finished') {
             return (
                 <li key={game.id}>
                     <Link to={`/games/${game.id}`}>{`Type: ${game.type} Status: ${game.status}` } </Link>
@@ -12,16 +12,18 @@ const GameList = (props) => {
             );
         } else if (props.location.pathname === '/finishedGames' && game.status === 'finished') {
             return (
-              <li key={game.id}>
-                  <Link to={`/games/${game.id}`}>{`Type: ${game.type} Status: ${game.status}` } </Link>
-              </li>
+                <li key={game.id}>
+                    <Link to={`/games/${game.id}`}>{`Type: ${game.type} Status: ${game.status}` } </Link>
+                </li>
             );
         }
     });
 
     return (
         <div className="game-list reverse-list center">
-            {gameElements}
+            <ul>
+                {gameElements}
+            </ul>
         </div>
     );
 };
