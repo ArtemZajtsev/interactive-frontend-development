@@ -1,4 +1,5 @@
 import {connect} from '../utils/WebSocket';
+import {push} from 'connected-react-router';
 
 import {
     connectionSucceeded,
@@ -12,9 +13,11 @@ let webSocketConnection = null;
 export const connectPlayer = ({name}) => (dispatch) => {
     webSocketConnection = connect({
         onOpen: () => {
+            dispatch(push('/'));
             dispatch(connectionSucceeded());
         },
         onClose: ({reason}) => {
+            dispatch(push('/'));
             dispatch(disconnectSucceeded({reason}));
         },
         onMessage: ({eventName, payload}) => {
