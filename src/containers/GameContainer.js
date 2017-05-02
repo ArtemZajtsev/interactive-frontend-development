@@ -4,21 +4,20 @@ import WordGameApp from '../components/WordGameApp';
 import {connect} from 'react-redux';
 import {moveAdditionRequested} from '../actions/gameActions';
 
-
-const GameOrNotFound = (props) => {
-    if(props.game) {
-        if(props.game.type === 'guess_number') {
+const GameOrNotFound = ({game, gameId, onNumberGuessSubmit, onWordGuessSubmit}) => {
+    if(game) {
+        if(game.type === 'guess_number') {
             return (
-                <NumberGameApp game={props.game} onSubmit={props.onNumberGuessSubmit}/>
+                <NumberGameApp game={game} onSubmit={onNumberGuessSubmit}/>
             );
-        } else if(props.game.type === 'guess_word') {
+        } else if(game.type === 'guess_word') {
             return (
-                <WordGameApp game={props.game} onSubmit={props.onWordGuessSubmit}/>
+                <WordGameApp game={game} onSubmit={onWordGuessSubmit}/>
             );
         }
     } else {
         return (
-          <p>Game not found</p>
+          <p>Game {gameId} not found</p>
         );
     }
 };

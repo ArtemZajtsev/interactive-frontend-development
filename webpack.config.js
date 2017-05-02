@@ -9,7 +9,7 @@ module.exports = {
         path: path.join(__dirname, '/'),
     },
     devServer: {
-        port: 8080,
+        // port: 8080,
         historyApiFallback: true,
         // publicPath: 'http://localhost:8080/dist/bundle.js'
     },
