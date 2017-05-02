@@ -3,6 +3,7 @@ import NumberGameApp from '../components/NumberGameApp';
 import WordGameApp from '../components/WordGameApp';
 import {connect} from 'react-redux';
 import {moveAdditionRequested} from '../actions/gameActions';
+import PropTypes from 'prop-types';
 
 const GameOrNotFound = ({game, gameId, onNumberGuessSubmit, onWordGuessSubmit}) => {
     if(game) {
@@ -22,6 +23,13 @@ const GameOrNotFound = ({game, gameId, onNumberGuessSubmit, onWordGuessSubmit}) 
     }
 };
 
+GameOrNotFound.propTypes = {
+    game: PropTypes.object.isRequired,
+    gameId: PropTypes.string.isRequired,
+    onWordGuessSubmit: PropTypes.func.isRequired,
+    onNumberGuessSubmit: PropTypes.func.isRequired
+};
+
 const mapDispatchToProps = (dispatch) => ({
     onNumberGuessSubmit: (guess, id) => dispatch(moveAdditionRequested(guess, id)),
     onWordGuessSubmit: (guess, id) => dispatch(moveAdditionRequested(guess, id))
@@ -34,3 +42,4 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameOrNotFound);
+
