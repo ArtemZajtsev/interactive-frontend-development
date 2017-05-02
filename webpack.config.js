@@ -10,7 +10,8 @@ module.exports = {
     },
     devServer: {
         port: 8080,
-        historyApiFallback: true
+        historyApiFallback: true,
+        // publicPath: 'http://localhost:8080/dist/bundle.js'
     },
     devtool: 'inline-source-map',
     module: {

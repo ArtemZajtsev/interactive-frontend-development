@@ -7,6 +7,7 @@ import {ConnectedRouter} from 'connected-react-router';
 import {Route} from 'react-router-dom';
 import RoutingComponentContainer from './RoutingComponentContainer';
 import PropTypes from 'prop-types';
+import GameContainer from './GameContainer';
 
 const App = ({history}) => {
     return (
@@ -19,6 +20,7 @@ const App = ({history}) => {
                 <Route path="/players" component={PlayerListContainer}/>
                 <Route path="/ongoingGames" component={GameListContainer}/>
                 <Route path="/finishedGames" component={GameListContainer}/>
+                <Route path="/games/:gameId" component={GameContainer}/>
             </div>
         </ConnectedRouter>
     );

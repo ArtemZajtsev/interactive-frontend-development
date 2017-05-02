@@ -1,18 +1,20 @@
 import React from 'react';
-import NumberGameApp from './NumberGameApp';
-import WordGameApp from './WordGameApp';
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom';
 
 const GameList = (props) => {
     const gameElements = props.games.map((game) => {
-        if (game.type === 'guess_number') {
+        if (props.location.pathname === '/ongoingGames' && game.status !== 'finished' ) {
             return (
-                <NumberGameApp key={game.id} game={game} onSubmit={props.onNumberGuessSubmit}/>
+                <li key={game.id}>
+                    <Link to={`/games/${game.id}`}>{`Type: ${game.type} Status: ${game.status}` } </Link>
+                </li>
             );
-        } else if (game.type === 'guess_word') {
+        } else if (props.location.pathname === '/finishedGames' && game.status === 'finished') {
             return (
-                <WordGameApp key={game.id} game={game} onSubmit={props.onWordGuessSubmit}/>
+              <li key={game.id}>
+                  <Link to={`/games/${game.id}`}>{`Type: ${game.type} Status: ${game.status}` } </Link>
+              </li>
             );
         }
     });
@@ -25,7 +27,8 @@ const GameList = (props) => {
 };
 
 GameList.propTypes = {
-    games: PropTypes.array.isRequired
+    games: PropTypes.array.isRequired,
+    location: PropTypes.object.isRequired
 };
 
 export default GameList;
