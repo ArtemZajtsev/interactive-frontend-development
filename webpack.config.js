@@ -9,12 +9,13 @@ module.exports = {
         path: path.join(__dirname, '/'),
     },
     devServer: {
-      port:8080
+        port: 8080,
+        historyApiFallback: true
     },
-    devtool: "inline-source-map",
+    devtool: 'inline-source-map',
     module: {
         rules: [
-            { test: /\.js/, use: 'babel-loader' }
+            {test: /\.js/, use: 'babel-loader'}
         ]
     }
 };

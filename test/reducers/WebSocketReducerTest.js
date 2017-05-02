@@ -10,14 +10,14 @@ import {
 import {
     CONNECTED,
     CONNECTING,
-    DISONNECTED
+    DISCONNECTED
 } from '../../src/constants';
 
 
 describe('web socket reducer ', () => {
     it('is disconnected initially and without any players', () => {
         expect(reducer(undefined, {})).to.eql({
-            status: DISONNECTED,
+            status: DISCONNECTED,
             disconnectReason: null,
             players: [],
             currentPlayerId: ''
@@ -45,7 +45,7 @@ describe('web socket reducer ', () => {
             currentPlayerId: '',
             disconnectReason: 'test',
             players: [],
-            status: DISONNECTED
+            status: DISCONNECTED
         });
     });
     it('resets state to initial when player disconnects with no reason', () => {
@@ -54,7 +54,7 @@ describe('web socket reducer ', () => {
            currentPlayerId: '',
            disconnectReason: null,
            players: [],
-           status: DISONNECTED
+           status: DISCONNECTED
        });
     });
     it('sets players when player list received', () => {
@@ -73,7 +73,7 @@ describe('web socket reducer ', () => {
            currentPlayerId: 'meow',
            disconnectReason: null,
            players: [],
-           status: DISONNECTED
+           status: DISCONNECTED
        });
     });
 });

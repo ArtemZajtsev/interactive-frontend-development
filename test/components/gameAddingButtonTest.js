@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import GameAddingButtons from '../../src/components/GameAddingButtons';
-import {CONNECTED, CONNECTING, DISONNECTED} from '../../src/constants';
+import {CONNECTED, CONNECTING, DISCONNECTED} from '../../src/constants';
 
 describe('game adding buttons', () => {
     it('shows loading when request is on fly', () => {
@@ -41,7 +41,7 @@ describe('game adding buttons', () => {
         const component = shallow(
             <GameAddingButtons onNumberClick=""
                                onWordClick=""
-                               status={DISONNECTED}
+                               status={DISCONNECTED}
                                fetchState=""/>
         );
         expect(component).to.have.exactly(1).descendants('div');

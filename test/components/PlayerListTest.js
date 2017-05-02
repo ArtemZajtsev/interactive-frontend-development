@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import PlayerList from '../../src/components/PlayerList';
-import {CONNECTED, DISONNECTED, CONNECTING} from '../../src/constants';
+import {CONNECTED, DISCONNECTED, CONNECTING} from '../../src/constants';
 
 describe('Player List ', () => {
    it('renders', () => {
@@ -16,7 +16,7 @@ describe('Player List ', () => {
    });
    it('renders empty div if player is disconnected', () =>{
        expect(shallow(
-           <PlayerList currentPlayerId="" status={DISONNECTED} players={[]}/>
+           <PlayerList currentPlayerId="" status={DISCONNECTED} players={[]}/>
        )).to.have.exactly(1).descendants('div');
    });
     it('renders empty div if player is connecting', () =>{
