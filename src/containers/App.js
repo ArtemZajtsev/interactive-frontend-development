@@ -19,10 +19,6 @@ const App = ({history}) => {
                 <Route path="/players" component={PlayerListContainer}/>
                 <Route path="/ongoingGames" component={GameListContainer}/>
                 <Route path="/finishedGames" component={GameListContainer}/>
-                {/*<Route path="/games/:gameId"/>*/}
-                {/*<PlayerListContainer/>*/}
-                {/*<GameAddingButtonsContainer/>*/}
-                {/*<GameListContainer/>*/}
             </div>
         </ConnectedRouter>
     );
