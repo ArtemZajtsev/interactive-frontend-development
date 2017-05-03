@@ -3,17 +3,31 @@ import GameListContainer from './GameListContainer';
 import GameAddingButtonsContainer from './GameAddingButtonsContainer';
 import ConnectionContainer from './ConnectionContainer';
 import PlayerListContainer from './PlayerListContainer';
+import {ConnectedRouter} from 'connected-react-router';
+import {Route} from 'react-router-dom';
+import RoutingComponentContainer from './RoutingComponentContainer';
+import PropTypes from 'prop-types';
+import GameContainer from './GameContainer';
 
-const App = () => {
-        return (
+const App = ({history}) => {
+    return (
+        <ConnectedRouter history={history}>
             <div className="app">
+                <RoutingComponentContainer/>
                 <h1 className="center">Game Lobby</h1>
                 <ConnectionContainer/>
-                <PlayerListContainer/>
-                <GameAddingButtonsContainer/>
-                <GameListContainer/>
+                <Route path="/createGame" component={GameAddingButtonsContainer}/>
+                <Route path="/players" component={PlayerListContainer}/>
+                <Route path="/ongoingGames" component={GameListContainer}/>
+                <Route path="/finishedGames" component={GameListContainer}/>
+                <Route path="/games/:gameId" component={GameContainer}/>
             </div>
-        );
-    };
+        </ConnectedRouter>
+    );
+};
 
 export default App;
+
+App.propTypes = {
+    history: PropTypes.object.isRequired
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import ConnectionComponent from '../../src/components/ConnectionComponent';
-import {DISONNECTED, CONNECTED, CONNECTING} from '../../src/constants';
+import {DISCONNECTED, CONNECTED, CONNECTING} from '../../src/constants';
 
 describe('ConnectionComponent ', () => {
     it('renders', () => {
@@ -13,7 +13,7 @@ describe('ConnectionComponent ', () => {
         const onConnect = sinon.spy();
         const component = shallow(<ConnectionComponent onDisconnectClick=""
                                                        onConnectClick={onConnect}
-                                                       status={DISONNECTED}
+                                                       status={DISCONNECTED}
                                                        disconnectReason={null}/>);
         component.find('button').simulate('click');
         expect(onConnect).to.have.property('callCount', 1);

@@ -9,11 +9,11 @@ import {
 import {
     CONNECTED,
     CONNECTING,
-    DISONNECTED
+    DISCONNECTED
 } from '../constants';
 
 const initialState = {
-    status: DISONNECTED,
+    status: DISCONNECTED,
     disconnectReason: null,
     players: [],
     currentPlayerId: ''
@@ -37,7 +37,7 @@ const reducer = (state = initialState, action) => {
             if (action.payload.reason) {
                 return {
                     ...state,
-                    status: DISONNECTED,
+                    status: DISCONNECTED,
                     disconnectReason: action.payload.reason
                 };
             } else {
