@@ -22,7 +22,7 @@ const GameOrNotFound = ({game, gameId, onNumberGuessSubmit, onWordGuessSubmit}) 
 };
 
 GameOrNotFound.propTypes = {
-    game: PropTypes.object.isRequired,
+    game: PropTypes.object,
     gameId: PropTypes.string.isRequired,
     onWordGuessSubmit: PropTypes.func.isRequired,
     onNumberGuessSubmit: PropTypes.func.isRequired
