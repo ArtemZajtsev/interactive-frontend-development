@@ -27,7 +27,7 @@
     "enzyme": "^2.7.1"
   },
   "dependencies": {
-    "game_lobby_server ": "^1.0.7",
+    "game_lobby_server": "^1.0.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
